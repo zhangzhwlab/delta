@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<properties>
+		<property name="dialect" value="mysql" />
+	</properties>
+	<mappers>	
+		<mapper resource="cn/ac/big/circos/dm/PubGeneMapper.xml"/>	
+		<mapper resource="cn/ac/big/circos/dm/HistoneMarkMapper.xml"/>
+		<mapper resource="cn/ac/big/circos/dm/InteractionMapper.xml"/>
+	</mappers>
+	
+	
+</configuration>		
+			

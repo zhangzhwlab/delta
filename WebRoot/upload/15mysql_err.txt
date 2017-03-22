@@ -1,0 +1,4 @@
+org.springframework.dao.CannotAcquireLockException: SqlSession operation; SQL []; Lock wait timeout exceeded; 
+try restarting transaction; nested exception is java.sql.SQLException: Lock wait timeout exceeded; try restarting transaction
+        at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:261)
+        at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExcep

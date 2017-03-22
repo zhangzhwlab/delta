@@ -1,0 +1,26 @@
+##gff-version 3
+1	.	chromosome	1	249250621	.	.	.	Name=1
+2	.	chromosome	1	243199373	.	.	.	Name=2
+3	.	chromosome	1	198022430	.	.	.	Name=3
+4	.	chromosome	1	191154276	.	.	.	Name=4
+5	.	chromosome	1	180915260	.	.	.	Name=5
+6	.	chromosome	1	171115067	.	.	.	Name=6
+7	.	chromosome	1	159138663	.	.	.	Name=7
+8	.	chromosome	1	146364022	.	.	.	Name=8
+9	.	chromosome	1	141213431	.	.	.	Name=9
+10	.	chromosome	1	135534747	.	.	.	Name=10
+11	.	chromosome	1	135006516	.	.	.	Name=11
+12	.	chromosome	1	133851895	.	.	.	Name=12
+13	.	chromosome	1	115169878	.	.	.	Name=13
+14	.	chromosome	1	107349540	.	.	.	Name=14
+15	.	chromosome	1	102531392	.	.	.	Name=15
+16	.	chromosome	1	90354753	.	.	.	Name=16
+17	.	chromosome	1	81195210	.	.	.	Name=17
+18	.	chromosome	1	78077248	.	.	.	Name=18
+19	.	chromosome	1	59128983	.	.	.	Name=19
+20	.	chromosome	1	63025520	.	.	.	Name=20
+21	.	chromosome	1	48129895	.	.	.	Name=21
+22	.	chromosome	1	51304566	.	.	.	Name=22
+X	.	chromosome	1	155270560	.	.	.	Name=X
+Y	.	chromosome	1	59373566	.	.	.	Name=Y
+MT	.	chromosome	1	16569	.	.	.	Name=MT

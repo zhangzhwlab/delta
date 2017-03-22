@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- <constant name="struts.custom.i18n.resources" value="globalMessage"/>-->
+	<!-- <constant name="struts.multipart.parser" value="requestParser"/>-->
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
+name="myRequestParser" class="cn.ac.big.circos.util.RequestParseWrapper"
+scope="default" optional="true" />
+<constant name="struts.multipart.handler" value="myRequestParser" />
+
+
+	<package name="default" namespace="/" extends="struts-default">
+	</package>
+	
+	<package name="pipeline" namespace="/pipeline" extends="struts-default">
+	
+		<action name="downloadFile" class="downloadFileAction" method="execDownloadFileFunc">
+		
+		</action>
+		
+		<action name="pipelineProcess" class="pipelineAction" method="execHicPipelineFunc">
+			<result name="success" type="redirect">/pipeline/showResult.action?jobid=${jobid}</result>
+			
+		</action>
+		
+		
+		<action name="owndataProcess" class="pipelineAction" method="execUseOwnDataFunc">
+			<result name="success" type="redirect">/pipeline/showMyResult.action?jobid=${jobid}</result>
+		
+		</action>
+		
+		
+	    <action name="showResult" class="pipelineAction" method="execShowResultFunc">
+			<result name="success">/pages/pipeline/pip_result.jsp</result>
+		</action>
+		
+		
+		<action name="showMyResult" class="pipelineAction" method="execShowMyResultFunc">
+			<result name="success">/pages/pipeline/own_result.jsp</result>
+		</action>
+		
+		
+				
+		<action name="showTAD" class="pipelineAction" method="execShowTADResultFunc">
+			<result name="success">/pages/pipeline/tad_result.jsp</result>
+		</action>
+		
+		
+	    <action name="showPeak" class="pipelineAction" method="execShowPeakResultFunc">
+			<result name="success">/pages/pipeline/fasthic_result.jsp</result>
+		</action>
+		
+		<action name="showBACH" class="pipelineAction" method="execShowBachResultFunc">
+			<result name="success">/pages/pipeline/bach_result.jsp</result>
+		</action>
+		
+		
+		<action name="physicalAddTrack" class="physicalViewAction" method="execUploadTrackFunc">
+			<result name="success" type="redirect">/pages/visualization/physical_view.jsp?conf=${conf}</result>
+		</action>
+		
+		
+	   <action name="circletAddTrack" class="topoViewAction" method="execAddTrackFunc">
+			<result name="success" type="redirect">/pages/visualization/topo_viewm.jsp?conf=${conf}</result>
+		</action>
+		
+	  <action name="saveAnchroTarget" class="exportAction" method="execSaveTargetlistToFile">
+				
+	  </action>
+	  
+	  <action name="uploadNeedFile" class="uploadFileAction" method="executeUploadFileFunc">
+	  	
+	  </action>
+		
+	</package>
+	
+	<package name="ajax" namespace="/ajax" extends="json-default">
+		 <!--
+		 <action name="zoomin1p5" class="circosViewAction" method="execIn1p5func">
+	   		 <result name="success" type="json"></result>
+	    </action>
+	    
+	    <action name="drawinteraction" class="circosViewAction" method="execDrawInteraction">
+	   		 <result name="success" type="json"></result>
+	    </action>
+	    
+	    <action name="drawhistogram1" class="circosViewAction" method="execDrawHistorgram">
+	   		 <result name="success" type="json"></result>
+	    </action>
+	    
+
+  		<action name="drawhistogram2" class="circosViewAction" method="execDrawHistorgram2">
+	   		 <result name="success" type="json"></result>
+	    </action>
+		
+		-->
+		<action name="drawBACH" class="physicalViewAction" method="execDrawFunc">
+		 	<result name="success" type="json"></result>
+		</action>
+		
+		<action name="getChromatinInterData" class="topoViewAction" method="execChromatinDataFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="getChromatinInterDataFromTable" class="topoViewAction" method="execChromatinDataFromMysqlFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="getQualityData" class="topoViewAction" method="execWiggleDataFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		<action name="getHistogramStatics" class="topoViewAction" method="execGetHistogramStatisticDataFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		<action name="initCircos" class="topoViewAction" method="execInitFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		<action name="initTrack" class="topoViewAction" method="execLoadDatasetConfigFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+
+		<action name="getTabixGff"  class="topoViewAction" method="execParseTabixGff3func">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="initPhysical" class="physicalViewAction" method="execInitFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="loadPysicalTrack" class="physicalViewAction" method="execLoadDatasetConfigFunc">
+				<result name="success" type="json"></result>
+		</action>
+		
+		
+		<action name="ajaxTADresult" class="pipelineAction" method="execAjaxTADResultFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		<action name="ajaxPeakresult" class="pipelineAction" method="execAjaxPeakResultFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="ajaxBachresult" class="pipelineAction" method="execAjaxBachResultFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		
+		<action name="ajaxSearchGene" class="physicalViewAction" method="execSearchGeneFunc">
+			<result name="success" type="json"></result>	
+		</action>
+		
+		<action name="ajaxFindGivenScopeGene" class="physicalViewAction" method="execSearchGeneForGivenRangeFunc">
+		
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		
+		<action name="ajaxSearchHistone" class="physicalViewAction" method="execSearchHisMarkFunc">
+			<result name="success" type="json"></result>	
+		</action>
+		
+		<action name="ajaxPmodelBinsize" class="physicalViewAction" method="execGetPhysicalModelBinSizeFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="ajaxPhyCell" class="ajaxPhysicalView" method="execGetCellTypeFunc">
+				<result name="success" type="json"></result>	
+		</action>
+		
+		<action name="ajaxPhyHis" class="ajaxPhysicalView" method="execGetHisMarkFunc">
+				<result name="success" type="json"></result>	
+		</action>
+		
+        
+		<action name="ajaxFindHistoneDensity" class="ajaxPhysicalView" method="execGetPeakGFF3File">
+				<result name="success" type="json"></result>	
+		</action>
+		
+		
+		<action name="ajaxFindHistoneDFromMysql" class="ajaxPhysicalView" method="execGetHistoneDensityFromMysqlFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="ajaxGetGff3file" class="ajaxPhysicalView" method="execParseGFF3File">
+				<result name="success" type="json"></result>	
+		</action>
+		
+		<action name="ajaxGetGPeakff3file" class="ajaxPhysicalView" method="execGetPeakGFF3File">
+				<result name="success" type="json"></result>	
+		</action>
+
+		<action name="ajaxGetGPeakFromTable" class="ajaxPhysicalView" method="execGetPeakFromMysqlFunc">
+				<result name="success" type="json"></result>	
+		</action>
+				
+		<action name="ajaxExportPDF" class="exportAction" method="execExportAsPDFFunc">		
+				<result name="success" type="json"></result>	
+		</action>
+		
+		
+		
+		<!--
+		<action name="drawMatrix"  class="matrixViewAction" method="execDrawMatrixFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		<action name="drawMatrixByjs" class="matrixViewAction" method="execGetGivenQueryBin">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		<action name="initMatrix" class="matrixViewAction" method="execInitFunc">
+			<result name="success" type="json"></result>
+		</action>
+		
+	    <action name="loadMatrixDataSet" class="matrixViewAction" method="execLoadDatasetConfigFunc">
+			<result name="success" type="json"></result>
+		</action>	
+		
+		-->
+		
+	</package>
+		
+</struts>

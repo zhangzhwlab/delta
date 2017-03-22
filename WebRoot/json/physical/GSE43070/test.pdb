@@ -1,0 +1,30 @@
+HEADER    CYTOKINE/CYTPKINE                       07-JUN-00   1F45              
+TITLE     HUMAN INTERLEUKIN-12                                                       
+ATOM      1  H   ILE A   1      15.200  27.271  13.911  1.00 75.58           H  
+ATOM      2  CA  ILE A   1      15.336  27.312  15.415  1.00 74.25           O  
+ATOM      3  C   ILE A   1      16.364  26.299  15.932  1.00 74.22           H  
+ATOM      4  O   ILE A   1      16.167  25.081  15.787  1.00 73.80           O  
+ATOM      5  CB  ILE A   1      14.019  26.968  16.088  1.00 73.67           H  
+ATOM      6  CG1 ILE A   1      14.198  27.038  17.607  1.00 69.85           O  
+ATOM      7  CG2 ILE A   1      13.515  25.568  15.575  1.00 72.96           H  
+ATOM      8  CD1 ILE A   1      14.524  28.415  18.088  1.00 70.06           O  
+ATOM      9  N   TRP A   1      17.456  26.771  16.532  1.00 73.56           H  
+ATOM     10  CA  TRP A   1      18.424  25.815  17.028  1.00 72.78           O  
+ATOM     11  C   TRP A   1      19.122  26.165  18.302  1.00 73.51           H  
+ATOM     12  O   TRP A   1      19.066  27.314  18.764  1.00 71.72           O  
+ATOM     13  CB  TRP A   1      19.462  25.453  15.954  1.00 72.77           H  
+ATOM     14  CG  TRP A   1      20.074  26.595  15.228  1.00 70.75           O  
+ATOM     15  CD1 TRP A   1      19.577  27.231  14.128  1.00 69.67           H  
+ATOM     16  CD2 TRP A   1      21.316  27.232  15.536  1.00 68.99           O  
+ATOM     17  NE1 TRP A   1      20.432  28.224  13.735  1.00 68.93           H   
+CONECT    1    2                                                                
+CONECT    2    3                                                                
+CONECT    3    4                                                                
+CONECT    4    5                                                                
+CONECT    5    6                                                                
+CONECT    6    7                                                                
+CONECT    7    8                                                                
+CONECT    8    9                                                                
+CONECT    9   10                                                                
+CONECT   10   11                                                                
+CONECT   11   12                                                                

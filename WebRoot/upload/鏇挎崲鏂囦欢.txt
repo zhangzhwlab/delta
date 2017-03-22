@@ -1,0 +1,7 @@
+cp /leofs/biotrans/chentt/Cistanche_webdata/6973b883-f0f4-4560-86fd-8e4270949148	/data/webdb/chgd_songssh_20150619/upload/69/73/6973b883-f0f4-4560-86fd-8e4270949148
+cp /leofs/biotrans/chentt/Cistanche_webdata/4879e00d-65b5-44a5-a9f3-2c17e12438da	/data/webdb/chgd_songssh_20150619/upload/48/79/4879e00d-65b5-44a5-a9f3-2c17e12438da
+cp /leofs/biotrans/chentt/Cistanche_webdata/4e4faab9-e8bb-4d91-846f-2f95c0f76d51	/data/webdb/chgd_songssh_20150619/upload/4e/4f/4e4faab9-e8bb-4d91-846f-2f95c0f76d51
+cp /leofs/biotrans/chentt/Cistanche_webdata/c4bf7707-d9f9-47c2-b699-cbe7c2498f4a	/data/webdb/chgd_songssh_20150619/upload/c4/bf/c4bf7707-d9f9-47c2-b699-cbe7c2498f4a
+cp /leofs/biotrans/chentt/Cistanche_webdata/90a88f28-0d54-4b6b-8792-90a91e5e8c02	/data/webdb/chgd_songssh_20150619/upload/90/a8/90a88f28-0d54-4b6b-8792-90a91e5e8c02
+cp /leofs/biotrans/chentt/Cistanche_webdata/4a3ac1ff-7fc0-41b3-a96e-084a4e0bf961	/data/webdb/chgd_songssh_20150619/upload/4a/3a/4a3ac1ff-7fc0-41b3-a96e-084a4e0bf961
+cp /leofs/biotrans/chentt/Cistanche_webdata/b3f0cfb9-c8fb-4807-bcb1-073c41e53e60	/data/webdb/chgd_songssh_20150619/upload/b3/f0/b3f0cfb9-c8fb-4807-bcb1-073c41e53e60

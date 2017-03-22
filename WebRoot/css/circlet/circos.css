@@ -1,0 +1,65 @@
+div.track-label{
+	background: #eeeeee none repeat scroll 0 0;
+	border:1px solid #dddddd;
+    color: black;
+    height: 23px;
+    line-height: 23px;
+    margin: -1px 0 0 -1px;
+    opacity: 0.7;
+    overflow: visible;
+    padding: 0 5px;
+    white-space: nowrap;
+	z-index:202;
+}
+
+div.track-label .track-menu-button {
+    border-left: 1px inset transparent;
+    border-radius: 0 6px 6px 0;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    right: -5px;
+    top: 0;
+    vertical-align: top;
+    width: 12px;
+}
+
+div.track-label:hover .track-menu-button div {
+    background: #cccccc url("/circosweb/images/spriteArrows.png") no-repeat scroll -28px 0;
+	height: 8px;
+    left: 4px;
+    position: absolute;
+    top: 7px;
+    width: 4px;
+}
+
+div.track-label:hover {
+    background: #ddd url("/circosweb/images/titleBar.png") repeat-x scroll left top;
+    border-color: rgba(0, 0, 0, 1);
+    border-width: 1px;
+	  cursor: pointer;
+    opacity: 1;
+}
+
+
+div.track-label:hover .track-menu-button:hover {
+    background-color: rgba(0, 0, 100, 0.05);
+    border-left-color: #ccc;
+}
+
+.right-menu-class{
+	z-index: 205; 
+	right: auto; 
+	background: #eeeeee none repeat scroll 0 0;
+	border:1px solid #7eabcd;
+	visibility: visible;
+	position: absolute;
+	font-size:10px;
+}
+.right-menu-class ul li {
+	padding: 5px 10px;
+}
+
+
+
+

@@ -1,0 +1,3467 @@
+{
+	 "trackMetadata": {
+      "indexFacets":  [ 
+	           "label","name","data_category","organism","cell","data_type","lab","antibody","peaks","replicate_number","file_type"
+              ],
+      "sources": [
+           { "type": "csv", "url":  "encode_meta_hg19.csv" }
+      ]
+	},
+	 "trackSelector": {
+		"type" : "Faceted",
+		"selectableFacets": ["data_category","cell","antibody","lab","data_type"],
+		"collapsedCategories" : "Annotation,ENCODE,GSE35156",
+		"sortHierarchical" : false
+	 },
+	 
+   "tracks" : [
+ 
+  
+	  {
+         "urlTemplate" : "tracks/tadstatic/{refseq}/trackData.json",
+         "compress" : 0,
+         "style" : {
+            "className" : "image"
+         },
+		  "metadata": {
+			 "label":"Matrix",
+             "data_category": "My Track",
+             "organism": "hg19",
+             "cell": "K562",
+             "data_type": "Hi-C Heatmap",
+			 "lab": "Erez Lieberman Aiden",
+			 "antibody": "unknown",
+			 "peaks": "unknown",
+			 "replicate_number": "",
+			 "file_type": "image"
+         },
+		 "category" : "My track",
+         "type" : "ImageTrack.Wiggle",
+         "label" : "Matrix",
+         "key" : "Matrix"
+      },
+	  {  
+         "key" : "Interaction",
+         "feature" : [
+            "arc"
+         ],       
+         "storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+         "category" : "My track",       
+         "autocomplete" : "all",
+         "track" : "ARC",
+         "style" : {
+            "className" : "feature",
+			"showLabels": false,
+			"showTooltips":false
+         },
+		 "metadata": {
+			 "label":"Interaction",
+             "data_category": "My Track",
+             "organism": "hg19",
+             "cell": "K562",
+             "data_type": "Hi-C Interactions",
+			 "lab": "Erez Lieberman Aiden",
+			 "antibody": "unknown",
+			 "peaks": "unknown",
+			 "replicate_number": "",
+			 "file_type": "GFF3"
+         },
+		"chunkSizeLimit" : "10000000",
+        "maxFeatureScreenDensity" : "20" , 
+		"trackType" : "src/JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "tracks/arc/{refseq}/arc.gff3",
+         "compress" : 0,
+         "label" : "Interaction",
+         "type" : "src/JBrowse/View/Track/CanvasFeatures"
+      },   
+	  {        
+         "key" : "TAD",
+         "feature" : [
+            "tad"
+         ],       
+         "storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+         "category" : "My track",      
+         "autocomplete" : "all",
+         "track" : "TAD",
+         "style" : {
+            "className" : "feature3",
+			"showLabels": false,
+			"showTooltips":false
+         },
+		  "metadata": {
+			 "label":"TAD",
+             "data_category": "My Track",
+             "organism": "hg19",
+             "cell": "K562",
+             "data_type": "Hi-C TAD",
+			 "lab": "Erez Lieberman Aiden",
+			 "antibody": "unknown",
+			 "peaks": "",
+			 "replicate_number": "",
+			 "file_type": "GFF3"
+         },
+         "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=ensembl_gene,Interaction&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ],
+		 "chunkSizeLimit" : "10000000",
+         "maxFeatureScreenDensity" : "100" ,
+         "urlTemplate" : "tracks/tad/{refseq}/tad.gff3",
+         "compress" : 0,
+         "label" : "TAD",
+         "type" : "FeatureTrack"
+      }, 
+	  
+	   {
+         "autocomplete" : "all",
+         "track" : "ensembl_gene",
+         "style" : {
+            "color" : "#E32A3A"
+         },
+         
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ],
+		 "onClick": {
+			"label": "{name}",
+			"title" : "{name}",
+			"action": "defaultDialog"
+		},	
+         "key" : "ensembl_gene",
+         "feature" : [
+            "gene"
+         ],
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "phase" : 1,
+         "urlTemplate" : "../human/tracks/Ensgene/{refseq}/trackData.json",
+         "compress" : 0,
+         "label" : "ensembl_gene",
+         "type" : "FeatureTrack",
+         "category" : "Ensembl"
+      },
+{
+"category" : "ENCODE/GM12878/Signals",
+"key"           : "GM12878_RNA-seq_minus_signal",
+"label"         : "GM12878_RNA-seq_minus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeCshlLongRnaSeqGm12878NucleolusTotalMinusSignalRep4.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Signals",
+"key"           : "GM12878_RNA-seq_plus_signal",
+"label"         : "GM12878_RNA-seq_plus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeCshlLongRnaSeqGm12878NucleolusTotalPlusSignalRep4.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Signals",
+"key"           : "GM12878_EZH2_signal",
+"label"         : "GM12878_EZH2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878Ezh239875Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Signals",
+"key"           : "GM12878_H2AZ_signal",
+"label"         : "GM12878_H2AZ_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878H2azStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/Signals",
+"key"           : "GM12878_H3k79me2_signal",
+"label"         : "GM12878_H3k79me2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878H3k79me2StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/Signals",
+"key"           : "GM12878_H3k9me3_signal",
+"label"         : "GM12878_H3k9me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878H3k9me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/Signals",
+"key"           : "GM12878_RIP-seq_signal",
+"label"         : "GM12878_RIP-seq_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeSunyRipSeqGm12878RipinputSigRep1.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/H1-hESC/Signals",
+"key"           : "H1-hESC_RNA-seq_minus_signal",
+"label"         : "H1-hESC_RNA-seq_minus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeCshlLongRnaSeqH1hescNucleusLongnonpolyaMinusRawSigRep2.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signals",
+"key"           : "H1-hESC_RNA-seq_plus_signal",
+"label"         : "H1-hESC_RNA-seq_plus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeCshlLongRnaSeqH1hescNucleusLongnonpolyaPlusRawSigRep2.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/H1-hESC/Signals",
+"key"           : "H1-hESC_EZH2_signal",
+"label"         : "H1-hESC_EZH2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescEzh239875Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signals",
+"key"           : "H1-hESC_H2AZ_signal",
+"label"         : "H1-hESC_H2AZ_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescH2azStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signals",
+"key"           : "H1-hESC_H3k9me3_signal",
+"label"         : "H1-hESC_H3k9me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescH3k09me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signals",
+"key"           : "H1-hESC_H3k27ac_signal",
+"label"         : "H1-hESC_H3k27ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescH3k27acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/H1-hESC/Signals",
+"key"           : "H1-hESC_H3k79me2_signal",
+"label"         : "H1-hESC_H3k79me2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescH3k79me2StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/H1-hESC/Signals",
+"key"           : "H1-hESC_RAD21_signal",
+"label"         : "H1-hESC_RAD21_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeSydhTfbsH1hescRad21IggrabSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signals",
+"key"           : "H1-hESC_ZNF143_signal",
+"label"         : "H1-hESC_ZNF143_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeSydhTfbsH1hescZnf143IggrabSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_DNase-seq_signal",
+"label"         : "K562_DNase-seq_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeOpenChromDnaseK562SigV2.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_RNA-seq_minus_signal",
+"label"         : "K562_RNA-seq_minus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeCshlLongRnaSeqK562NucleolusTotalMinusRawSigRep4.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_RNA-seq_plus_signal",
+"label"         : "K562_RNA-seq_plus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeCshlLongRnaSeqK562NucleolusTotalPlusRawSigRep4.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_RIP-seq_signal",
+"label"         : "K562_RIP-seq_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeSunyRipSeqK562RipinputSigRep1.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_ChIA-PET_CTCF_signal",
+"label"         : "K562_ChIA-PET_CTCF_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeGisChiaPetK562CtcfSigRep1.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_ChIA-PET_Pol2_signal",
+"label"         : "K562_ChIA-PET_Pol2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeGisChiaPetK562Pol2SigRep1.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_EZH2_signal",
+"label"         : "K562_EZH2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562Ezh239875StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_H2AZ_signal",
+"label"         : "K562_H2AZ_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562H2azStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_H3k79me2_signal",
+"label"         : "K562_H3k79me2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562H3k79me2StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_H3k9me3_signal",
+"label"         : "K562_H3k9me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562H3k9me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_RAD21_signal",
+"label"         : "K562_RAD21_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeHaibTfbsK562Rad21V0416102RawRep1.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signals",
+"key"           : "K562_H3k4me3_signal",
+"label"         : "K562_H3k4me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/ENCFF352VRB_hg19.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_ChIA-PET_Pol2_signal",
+"label"         : "HeLa-S3_ChIA-PET_Pol2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeGisChiaPetHelas3Pol2SigRep1.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_CTCF_signal",
+"label"         : "HeLa-S3_CTCF_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3CtcfStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_EZH2_signal",
+"label"         : "HeLa-S3_EZH2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3Ezh239875Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_H2AZ_signal",
+"label"         : "HeLa-S3_H2AZ_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3H2azSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_H3k4me1_signal",
+"label"         : "HeLa-S3_H3k4me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3H3k04me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_H3k9me3_signal",
+"label"         : "HeLa-S3_H3k9me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3H3k09me3Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_H3k27ac_signal",
+"label"         : "HeLa-S3_H3k27ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3H3k27acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_H3k27me3_signal",
+"label"         : "HeLa-S3_H3k27me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3H3k27me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_H3k36me3_signal",
+"label"         : "HeLa-S3_H3k36me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3H3k36me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_H3k4me2_signal",
+"label"         : "HeLa-S3_H3k4me2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3H3k4me2StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_H3k4me3_signal",
+"label"         : "HeLa-S3_H3k4me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3H3k4me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_H3k79me2_signal",
+"label"         : "HeLa-S3_H3k79me2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3H3k79me2StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_H3k9ac_signal",
+"label"         : "HeLa-S3_H3k9ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3H3k9acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Signals",
+"key"           : "HeLa-S3_H4k20me1_signal",
+"label"         : "HeLa-S3_H4k20me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeBroadHistoneHelas3H4k20me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HepG2/Signals",
+"key"           : "HepG2_RNA-seq_minus_signal",
+"label"         : "HepG2_RNA-seq_minus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeCaltechRnaSeqHepg2R1x75dTh1014UMinusRawRep1V4.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Signals",
+"key"           : "HepG2_RNA-seq_plus_signal",
+"label"         : "HepG2_RNA-seq_plus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeCaltechRnaSeqHepg2R1x75dTh1014UPlusRawRep1V4.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HepG2/Signals",
+"key"           : "HepG2_EZH2_signal",
+"label"         : "HepG2_EZH2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2Ezh239875Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Signals",
+"key"           : "HepG2_H2AZ_signal",
+"label"         : "HepG2_H2AZ_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2H2azStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Signals",
+"key"           : "HepG2_H3k4me1_signal",
+"label"         : "HepG2_H3k4me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2H3k04me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Signals",
+"key"           : "HepG2_H3k9me3_signal",
+"label"         : "HepG2_H3k9me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2H3k09me3Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HepG2/Signals",
+"key"           : "HepG2_H3k79me2_signal",
+"label"         : "HepG2_H3k79me2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2H3k79me2StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HepG2/Signals",
+"key"           : "HepG2_RAD21_signal",
+"label"         : "HepG2_RAD21_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeSydhTfbsHepg2Rad21IggrabSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Signals",
+"key"           : "HepG2_SMC3_signal",
+"label"         : "HepG2_SMC3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeSydhTfbsHepg2Smc3ab9263IggrabSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signals",
+"key"           : "HUVEC_DNase-seq_signal",
+"label"         : "HUVEC_DNase-seq_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeUwDgfHuvecRaw.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signals",
+"key"           : "HUVEC_RNA-seq_minus_signal",
+"label"         : "HUVEC_RNA-seq_minus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeCshlLongRnaSeqHuvecNucleusLongnonpolyaMinusRawSigRep3.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signals",
+"key"           : "HUVEC_RNA-seq_plus_signal",
+"label"         : "HUVEC_RNA-seq_plus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeCshlLongRnaSeqHuvecNucleusLongnonpolyaPlusRawSigRep3.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signals",
+"key"           : "HUVEC_EZH2_signal",
+"label"         : "HUVEC_EZH2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecEzh239875Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signals",
+"key"           : "HUVEC_H2AZ_signal",
+"label"         : "HUVEC_H2AZ_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH2azSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signals",
+"key"           : "HUVEC_H3k9me3_signal",
+"label"         : "HUVEC_H3k9me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH3k09me3Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+
+{
+"category" : "ENCODE/HUVEC/Signals",
+"key"           : "HUVEC_H3k79me2_signal",
+"label"         : "HUVEC_H3k79me2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH3k79me2Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/IMR90/Signals",
+"key"           : "IMR90_DNase-seq_signal",
+"label"         : "IMR90_DNase-seq_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/imr90/signal/wgEncodeOpenChromDnaseImr90Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/IMR90/Signals",
+"key"           : "IMR90_RNA-seq_minus_signal",
+"label"         : "IMR90_RNA-seq_minus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/imr90/signal/wgEncodeCshlLongRnaSeqImr90NucleusPapMinusRep1.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/IMR90/Signals",
+"key"           : "IMR90_RNA-seq_plus_signal",
+"label"         : "IMR90_RNA-seq_plus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/imr90/signal/wgEncodeCshlLongRnaSeqImr90NucleusPapPlusRep1.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/IMR90/Signals",
+"key"           : "IMR90_CTCF_signal",
+"label"         : "IMR90_CTCF_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/imr90/signal/wgEncodeSydhTfbsImr90CtcfbIggrabSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/IMR90/Signals",
+"key"           : "IMR90_RAD21_signal",
+"label"         : "IMR90_RAD21_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/imr90/signal/wgEncodeSydhTfbsImr90Rad21IggrabSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/Peaks",
+"label"         : "GM12878_EZH2",
+"key"         : "GM12878_EZH2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/EZH2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_EZH2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_EZH2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Peaks",
+"label"         : "GM12878_H2AZ",
+"key"         : "GM12878_H2AZ",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/H2AZ/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_H2AZ,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_H2AZ&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/Peaks",
+"label"         : "GM12878_H3k79me2",
+"key"         : "GM12878_H3k79me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/H3k79me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_H3k79me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_H3k79me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/Peaks",
+"label"         : "GM12878_H3k9me3",
+"key"         : "GM12878_H3k9me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/H3k79me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_H3k9me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_H3k9me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Peaks",
+"label"         : "GM12878_Elavl1",
+"key"         : "GM12878_Elavl1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/Elavl1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_Elavl1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_Elavl1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Peaks",
+"label"         : "GM12878_Pabpc1",
+"key"         : "GM12878_Pabpc1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/Pabpc1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_Pabpc1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_Pabpc1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Peaks",
+"label"         : "GM12878_RIP-seq",
+"key"         : "GM12878_RIP-seq",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/RIPinput/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_RIP-seq,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_RIP-seq&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Peaks",
+"label"         : "GM12878_5C",
+"key"         : "GM12878_5C",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/5C/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_5C,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_5C&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Peaks",
+"label"         : "H1-hESC_EZH2",
+"key"         : "H1-hESC_EZH2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/EZH2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_EZH2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_EZH2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Peaks",
+"label"         : "H1-hESC_H2AZ",
+"key"         : "H1-hESC_H2AZ",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/H2AZ/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_H2AZ,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_H2AZ&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Peaks",
+"label"         : "H1-hESC_H3k9me3",
+"key"         : "H1-hESC_H3k9me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/H3k9me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_H3k9me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_H3k9me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Peaks",
+"label"         : "H1-hESC_H3k27ac",
+"key"         : "H1-hESC_H3k27ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/H3k27ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_H3k27ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_H3k27ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/H1-hESC/Peaks",
+"label"         : "H1-hESC_H3k79me2",
+"key"         : "H1-hESC_H3k79me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/H3k79me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_H3k79me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_H3k79me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Peaks",
+"label"         : "H1-hESC_RAD21",
+"key"         : "H1-hESC_RAD21",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/RAD21/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_RAD21,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_RAD21&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Peaks",
+"label"         : "H1-hESC_ZNF143",
+"key"         : "H1-hESC_ZNF143",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/ZNF143/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_ZNF143,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_ZNF143&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Peaks",
+"label"         : "H1-hESC_5C",
+"key"         : "H1-hESC_5C",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/5C/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_5C,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_5C&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/Interactions",
+"label"    : "K562_ChIA-PET_CTCF",
+"key"      : "K562_ChIA-PET_CTCF",
+"style" : {
+            "className" : "feature",
+            "showLabels" : false,
+            "height" : 600,
+            "showTooltips" : false
+         },
+"feature" : [ "arc"],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"trackType" : "JBrowse/View/Track/CanvasFeatures",
+"urlTemplate" : "../human/tracks/k562/ChiaPetCTCF/{refseq}/peak.gff3",
+"maxHeight" : 600,
+"compress" : 0,
+"type" : "JBrowse/View/Track/CanvasFeatures",
+},
+
+{
+"category" : "ENCODE/K562/Interactions",
+"label"         : "K562_ChIA-PET_Pol2",
+"key"         : "K562_ChIA-PET_Pol2",
+"style" : {
+            "className" : "feature",
+            "showLabels" : false,
+            "height" : 600,
+            "showTooltips" : false
+         },
+"feature" : ["arc"],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"trackType" : "JBrowse/View/Track/CanvasFeatures",
+"urlTemplate" : "../human/tracks/k562/ChiaPetPol2/{refseq}/peak.gff3",
+"maxHeight" : 600,
+"compress" : 0,
+"type" : "JBrowse/View/Track/CanvasFeatures",
+},
+
+{
+"category" : "ENCODE/K562/Peaks",
+"label"         : "K562_SMC3",
+"key"         : "K562_SMC3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/SMC3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_SMC3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_SMC3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"min_score"     : 0,
+"max_score"     : 200,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Peaks",
+"label"         : "K562_ZNF143",
+"key"         : "K562_ZNF143",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/ZNF143/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_ZNF143,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_ZNF143&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"min_score"     : 0,
+"max_score"     : 200,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Peaks",
+"label"         : "K562_EZH2",
+"key"         : "K562_EZH2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/EZH2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_EZH2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_EZH2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"min_score"     : 0,
+"max_score"     : 200,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Peaks",
+"label"         : "K562_H2AZ",
+"key"         : "K562_H2AZ",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H2AZ/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H2AZ,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H2AZ&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"min_score"     : 0,
+"max_score"     : 200,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Peaks",
+"label"         : "K562_H3k79me2",
+"key"         : "K562_H3k79me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H3k79me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H3k79me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H3k79me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Peaks",
+"label"         : "K562_H3k9me3",
+"key"         : "K562_H3k9me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H3k9me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H3k9me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H3k9me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Peaks",
+"label"         : "K562_RAD21",
+"key"         : "K562_RAD21",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/RAD21/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_RAD21,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_RAD21&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Peaks",
+"label"         : "K562_DNase-seq",
+"key"         : "K562_DNase-seq",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/Dnase/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_DNase-seq,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_DNase-seq&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Peaks",
+"label"         : "K562_RIP-seq",
+"key"         : "K562_RIP-seq",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/RIPinput/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_RIP-seq,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_RIP-seq&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Peaks",
+"label"         : "K562_5C",
+"key"         : "K562_5C",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/5C/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_5C,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_5C&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Interactions",
+"label"         : "HeLa-S3_ChIA-PET_Pol2",
+"key"         : "HeLa-S3_ChIA-PET_Pol2",
+"style" : {
+            "className" : "feature",
+            "showLabels" : false,
+            "height" : 600,
+            "showTooltips" : false
+         },
+"feature" : ["arc"],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"trackType" : "JBrowse/View/Track/CanvasFeatures",
+"urlTemplate" : "../human/tracks/hela-s3/ChiaPetPol2/{refseq}/peak.gff3",
+"maxHeight" : 600,
+"compress" : 0,
+"type" : "JBrowse/View/Track/CanvasFeatures",
+},
+
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_CTCF",
+"key"         : "HeLa-S3_CTCF",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/CTCF/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_CTCF,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_CTCF&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_EZH2",
+"key"         : "HeLa-S3_EZH2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/EZH2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_EZH2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_EZH2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_H2AZ",
+"key"         : "HeLa-S3_H2AZ",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/H2AZ/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_H2AZ,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_H2AZ&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_H3k4me1",
+"key"         : "HeLa-S3_H3k4me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/H3k4me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_H3k4me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_H3k4me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_H3k9me3",
+"key"         : "HeLa-S3_H3k9me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/H3k9me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_H3k9me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_H3k9me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_H3k27ac",
+"key"         : "HeLa-S3_H3k27ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/H3k27ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_H3k27ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_H3k27ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_H3k27me3",
+"key"         : "HeLa-S3_H3k27me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/H3k27me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_H3k27me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_H3k27me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_H3k36me3",
+"key"         : "HeLa-S3_H3k36me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/H3k36me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_H3k36me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_H3k36me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_H3k4me2",
+"key"         : "HeLa-S3_H3k4me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/H3k4me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_H3k4me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_H3k4me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_H3k4me3",
+"key"         : "HeLa-S3_H3k4me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/H3k4me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_H3k4me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_H3k4me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_H3k79me2",
+"key"         : "HeLa-S3_H3k79me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/H3k79me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_H3k79me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_H3k79me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_H3k9ac",
+"key"         : "HeLa-S3_H3k9ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/H3k9ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_H3k9ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_H3k9ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HeLa-S3/Peaks",
+"label"         : "HeLa-S3_H4k20me1",
+"key"         : "HeLa-S3_H4k20me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hela-s3/H4k20me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HeLa-S3_H4k20me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HeLa-S3_H4k20me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Peaks",
+"label"         : "HepG2_EZH2",
+"key"         : "HepG2_EZH2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/EZH2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_EZH2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_EZH2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Peaks",
+"label"         : "HepG2_H2AZ",
+"key"         : "HepG2_H2AZ",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/H2AZ/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_H2AZ,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_H2AZ&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Peaks",
+"label"         : "HepG2_H3k4me1",
+"key"         : "HepG2_H3k4me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/H3k4me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_H3k4me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_H3k4me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Peaks",
+"label"         : "HepG2_H3k9me3",
+"key"         : "HepG2_H3k9me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/H3k9me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_H3k9me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_H3k9me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Peaks",
+"label"         : "HepG2_H3k79me2",
+"key"         : "HepG2_H3k79me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/H3k79me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_H3k79me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_H3k79me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Peaks",
+"label"         : "HepG2_RAD21",
+"key"         : "HepG2_RAD21",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/RAD21/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_RAD21,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_RAD21&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Peaks",
+"label"         : "HepG2_SMC3",
+"key"         : "HepG2_SMC3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/SMC3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_SMC3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_SMC3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Peaks",
+"label"         : "HUVEC_EZH2",
+"key"         : "HUVEC_EZH2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/EZH2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_EZH2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_EZH2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Peaks",
+"label"         : "HUVEC_H2AZ",
+"key"         : "HUVEC_H2AZ",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H2AZ/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H2AZ,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H2AZ&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Peaks",
+"label"         : "HUVEC_H3k9me3",
+"key"         : "HUVEC_H3k9me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H3k9me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H3k9me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H3k9me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Peaks",
+"label"         : "HUVEC_H3k79me2",
+"key"         : "HUVEC_H3k79me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H3k79me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H3k79me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H3k79me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/IMR90/Peaks",
+"label"         : "IMR90_DNase-seq",
+"key"         : "IMR90_DNase-seq",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/imr90/Dnase/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=IMR90_DNase-seq,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,IMR90_DNase-seq&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/IMR90/Peaks",
+"label"         : "IMR90_CTCF",
+"key"         : "IMR90_CTCF",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/imr90/CTCF/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=IMR90_CTCF,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,IMR90_CTCF&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/IMR90/Peaks",
+"label"         : "IMR90_RAD21",
+"key"         : "IMR90_RAD21",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/imr90/RAD21/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=IMR90_RAD21,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,IMR90_RAD21&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"urlTemplate":"../GSE63525_3dmap/K562/1000000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/K562_combined(hg19)",
+"label" : "GSE63525_K562_combined_1000000_Matrix",
+"key" : "GSE63525_K562_combined_1000000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+{
+"urlTemplate":"../GSE63525_3dmap/K562/arc/{refseq}/arc.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/K562_combined(hg19)",
+"label" : "GSE63525_K562_combined_Interaction",
+"key" : "GSE63525_K562_combined_Interaction",
+"feature" : [
+    "arc"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"autocomplete" : "all",
+"track" : "TAD",
+ "style" : {
+ "className" : "feature",
+"showLabels": false,
+"showTooltips":false
+},
+"chunkSizeLimit" : "10000000",
+"maxFeatureScreenDensity" : "20" , 
+"trackType" : "src/JBrowse/View/Track/CanvasFeatures",
+ "compress" : 0,
+"type" : "src/JBrowse/View/Track/CanvasFeatures"
+},
+{
+"urlTemplate":"../GSE63525_3dmap/K562/tad/{refseq}/tad.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/K562_combined(hg19)",
+"label" : "GSE63525_K562_combined_TAD",
+"key" : "GSE63525_K562_combined_TAD",
+"feature" : [
+"tad"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+ "autocomplete" : "all",
+"track" : "TAD",
+"style" : {
+   "className" : "feature3",
+   "showLabels": false,
+   "showTooltips":false
+ },
+"chunkSizeLimit" : "10000000",
+ "maxFeatureScreenDensity" : "100" ,
+"compress" : 0,
+"type" : "FeatureTrack"
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/K562/500000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/K562_combined(hg19)",
+"label" : "GSE63525_K562_combined_500000_Matrix",
+"key" : "GSE63525_K562_combined_500000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/K562/250000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/K562_combined(hg19)",
+"label" : "GSE63525_K562_combined_250000_Matrix",
+"key" : "GSE63525_K562_combined_250000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/K562/100000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/K562_combined(hg19)",
+"label" : "GSE63525_K562_combined_100000_Matrix",
+"key" : "GSE63525_K562_combined_100000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/GM12878/1000000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/GM12878_combined(hg19)",
+"label" : "GSE63525_GM12878_combined_1000000_Matrix",
+"key" : "GSE63525_GM12878_combined_1000000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+{
+"urlTemplate":"../GSE63525_3dmap/GM12878/arc/{refseq}/arc.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/GM12878_combined(hg19)",
+"label" : "GSE63525_GM12878_combined_Interaction",
+"key" : "GSE63525_GM12878_combined_Interaction",
+"feature" : [
+    "arc"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"autocomplete" : "all",
+"track" : "TAD",
+ "style" : {
+ "className" : "feature",
+"showLabels": false,
+"showTooltips":false
+},
+"chunkSizeLimit" : "10000000",
+"maxFeatureScreenDensity" : "20" , 
+"trackType" : "src/JBrowse/View/Track/CanvasFeatures",
+ "compress" : 0,
+"type" : "src/JBrowse/View/Track/CanvasFeatures"
+},
+{
+"urlTemplate":"../GSE63525_3dmap/GM12878/tad/{refseq}/tad.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/GM12878_combined(hg19)",
+"label" : "GSE63525_GM12878_combined_TAD",
+"key" : "GSE63525_GM12878_combined_TAD",
+"feature" : [
+"tad"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+ "autocomplete" : "all",
+"track" : "TAD",
+"style" : {
+   "className" : "feature3",
+   "showLabels": false,
+   "showTooltips":false
+ },
+"chunkSizeLimit" : "10000000",
+ "maxFeatureScreenDensity" : "100" ,
+"compress" : 0,
+"type" : "FeatureTrack"
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/GM12878/500000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/GM12878_combined(hg19)",
+"label" : "GSE63525_GM12878_combined_500000_Matrix",
+"key" : "GSE63525_GM12878_combined_500000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/GM12878/250000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/GM12878_combined(hg19)",
+"label" : "GSE63525_GM12878_combined_250000_Matrix",
+"key" : "GSE63525_GM12878_combined_250000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/GM12878/100000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/GM12878_combined(hg19)",
+"label" : "GSE63525_GM12878_combined_100000_Matrix",
+"key" : "GSE63525_GM12878_combined_100000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/HUVEC/1000000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HUVEC_combined(hg19)",
+"label" : "GSE63525_HUVEC_combined_1000000_Matrix",
+"key" : "GSE63525_HUVEC_combined_1000000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+{
+"urlTemplate":"../GSE63525_3dmap/HUVEC/arc/{refseq}/arc.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HUVEC_combined(hg19)",
+"label" : "GSE63525_HUVEC_combined_Interaction",
+"key" : "GSE63525_HUVEC_combined_Interaction",
+"feature" : [
+    "arc"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"autocomplete" : "all",
+"track" : "TAD",
+ "style" : {
+ "className" : "feature",
+"showLabels": false,
+"showTooltips":false
+},
+"chunkSizeLimit" : "10000000",
+"maxFeatureScreenDensity" : "20" , 
+"trackType" : "src/JBrowse/View/Track/CanvasFeatures",
+ "compress" : 0,
+"type" : "src/JBrowse/View/Track/CanvasFeatures"
+},
+{
+"urlTemplate":"../GSE63525_3dmap/HUVEC/tad/{refseq}/tad.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HUVEC_combined(hg19)",
+"label" : "GSE63525_HUVEC_combined_TAD",
+"key" : "GSE63525_HUVEC_combined_TAD",
+"feature" : [
+"tad"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+ "autocomplete" : "all",
+"track" : "TAD",
+"style" : {
+   "className" : "feature3",
+   "showLabels": false,
+   "showTooltips":false
+ },
+"chunkSizeLimit" : "10000000",
+ "maxFeatureScreenDensity" : "100" ,
+"compress" : 0,
+"type" : "FeatureTrack"
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/HUVEC/500000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HUVEC_combined(hg19)",
+"label" : "GSE63525_HUVEC_combined_500000_Matrix",
+"key" : "GSE63525_HUVEC_combined_500000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/HUVEC/250000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HUVEC_combined(hg19)",
+"label" : "GSE63525_HUVEC_combined_250000_Matrix",
+"key" : "GSE63525_HUVEC_combined_250000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/HUVEC/100000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HUVEC_combined(hg19)",
+"label" : "GSE63525_HUVEC_combined_100000_Matrix",
+"key" : "GSE63525_HUVEC_combined_100000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/HMEC/1000000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HMEC_combined(hg19)",
+"label" : "GSE63525_HMEC_combined_1000000_Matrix",
+"key" : "GSE63525_HMEC_combined_1000000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+{
+"urlTemplate":"../GSE63525_3dmap/HMEC/arc/{refseq}/arc.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HMEC_combined(hg19)",
+"label" : "GSE63525_HMEC_combined_Interaction",
+"key" : "GSE63525_HMEC_combined_Interaction",
+"feature" : [
+    "arc"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"autocomplete" : "all",
+"track" : "TAD",
+ "style" : {
+ "className" : "feature",
+"showLabels": false,
+"showTooltips":false
+},
+"chunkSizeLimit" : "10000000",
+"maxFeatureScreenDensity" : "20" , 
+"trackType" : "src/JBrowse/View/Track/CanvasFeatures",
+ "compress" : 0,
+"type" : "src/JBrowse/View/Track/CanvasFeatures"
+},
+{
+"urlTemplate":"../GSE63525_3dmap/HMEC/tad/{refseq}/tad.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HMEC_combined(hg19)",
+"label" : "GSE63525_HMEC_combined_TAD",
+"key" : "GSE63525_HMEC_combined_TAD",
+"feature" : [
+"tad"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+ "autocomplete" : "all",
+"track" : "TAD",
+"style" : {
+   "className" : "feature3",
+   "showLabels": false,
+   "showTooltips":false
+ },
+"chunkSizeLimit" : "10000000",
+ "maxFeatureScreenDensity" : "100" ,
+"compress" : 0,
+"type" : "FeatureTrack"
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/HMEC/500000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HMEC_combined(hg19)",
+"label" : "GSE63525_HMEC_combined_500000_Matrix",
+"key" : "GSE63525_HMEC_combined_500000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/HMEC/250000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HMEC_combined(hg19)",
+"label" : "GSE63525_HMEC_combined_250000_Matrix",
+"key" : "GSE63525_HMEC_combined_250000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/HMEC/100000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/HMEC_combined(hg19)",
+"label" : "GSE63525_HMEC_combined_100000_Matrix",
+"key" : "GSE63525_HMEC_combined_100000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/IMR90/1000000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/IMR90_combined(hg19)",
+"label" : "GSE63525_IMR90_combined_1000000_Matrix",
+"key" : "GSE63525_IMR90_combined_1000000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+{
+"urlTemplate":"../GSE63525_3dmap/IMR90/arc/{refseq}/arc.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/IMR90_combined(hg19)",
+"label" : "GSE63525_IMR90_combined_Interaction",
+"key" : "GSE63525_IMR90_combined_Interaction",
+"feature" : [
+    "arc"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"autocomplete" : "all",
+"track" : "TAD",
+ "style" : {
+ "className" : "feature",
+"showLabels": false,
+"showTooltips":false
+},
+"chunkSizeLimit" : "10000000",
+"maxFeatureScreenDensity" : "20" , 
+"trackType" : "src/JBrowse/View/Track/CanvasFeatures",
+ "compress" : 0,
+"type" : "src/JBrowse/View/Track/CanvasFeatures"
+},
+{
+"urlTemplate":"../GSE63525_3dmap/IMR90/tad/{refseq}/tad.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/IMR90_combined(hg19)",
+"label" : "GSE63525_IMR90_combined_TAD",
+"key" : "GSE63525_IMR90_combined_TAD",
+"feature" : [
+"tad"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+ "autocomplete" : "all",
+"track" : "TAD",
+"style" : {
+   "className" : "feature3",
+   "showLabels": false,
+   "showTooltips":false
+ },
+"chunkSizeLimit" : "10000000",
+ "maxFeatureScreenDensity" : "100" ,
+"compress" : 0,
+"type" : "FeatureTrack"
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/IMR90/500000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/IMR90_combined(hg19)",
+"label" : "GSE63525_IMR90_combined_500000_Matrix",
+"key" : "GSE63525_IMR90_combined_500000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/IMR90/250000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/IMR90_combined(hg19)",
+"label" : "GSE63525_IMR90_combined_250000_Matrix",
+"key" : "GSE63525_IMR90_combined_250000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+
+{
+"urlTemplate":"../GSE63525_3dmap/IMR90/100000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/IMR90_combined(hg19)",
+"label" : "GSE63525_IMR90_combined_100000_Matrix",
+"key" : "GSE63525_IMR90_combined_100000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+
+
+{
+"urlTemplate":"../GSE63525_3dmap/KBM7/1000000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/KBM7_combined(hg19)",
+"label" : "GSE63525_KBM7_combined_1000000_Matrix",
+"key" : "GSE63525_KBM7_combined_1000000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+{
+"urlTemplate":"../GSE63525_3dmap/KBM7/arc/{refseq}/arc.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/KBM7_combined(hg19)",
+"label" : "GSE63525_KBM7_combined_Interaction",
+"key" : "GSE63525_KBM7_combined_Interaction",
+"feature" : [
+    "arc"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"autocomplete" : "all",
+"track" : "TAD",
+ "style" : {
+ "className" : "feature",
+"showLabels": false,
+"showTooltips":false
+},
+"chunkSizeLimit" : "10000000",
+"maxFeatureScreenDensity" : "20" , 
+"trackType" : "src/JBrowse/View/Track/CanvasFeatures",
+ "compress" : 0,
+"type" : "src/JBrowse/View/Track/CanvasFeatures"
+},
+{
+"urlTemplate":"../GSE63525_3dmap/KBM7/tad/{refseq}/tad.gff3",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/KBM7_combined(hg19)",
+"label" : "GSE63525_KBM7_combined_TAD",
+"key" : "GSE63525_KBM7_combined_TAD",
+"feature" : [
+"tad"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+ "autocomplete" : "all",
+"track" : "TAD",
+"style" : {
+   "className" : "feature3",
+   "showLabels": false,
+   "showTooltips":false
+ },
+"chunkSizeLimit" : "10000000",
+ "maxFeatureScreenDensity" : "100" ,
+"compress" : 0,
+"type" : "FeatureTrack"
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/KBM7/500000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/KBM7_combined(hg19)",
+"label" : "GSE63525_KBM7_combined_500000_Matrix",
+"key" : "GSE63525_KBM7_combined_500000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/KBM7/250000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/KBM7_combined(hg19)",
+"label" : "GSE63525_KBM7_combined_250000_Matrix",
+"key" : "GSE63525_KBM7_combined_250000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE63525_3dmap/KBM7/100000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "Rao and Huntley et al. | Cell 2014| GSE63525/KBM7_combined(hg19)",
+"label" : "GSE63525_KBM7_combined_100000_Matrix",
+"key" : "GSE63525_KBM7_combined_100000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+}
+
+  	 
+   ],
+  
+   "dataset_id" : jobid,
+   "formatVersion" : 1
+}

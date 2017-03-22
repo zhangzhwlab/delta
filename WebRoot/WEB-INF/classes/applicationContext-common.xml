@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+      xmlns:aop="http://www.springframework.org/schema/aop"      
+      xmlns:tx="http://www.springframework.org/schema/tx"       
+      xmlns:jdbc="http://www.springframework.org/schema/jdbc"       
+      xmlns:context="http://www.springframework.org/schema/context"      
+      xsi:schemaLocation="       
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd       
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd       
+      http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd       
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd       
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" default-autowire="byName">     
+
+   <context:annotation-config />
+   
+   <!-- database -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName">
+		<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://11.11.0.1:3306/hicbrowser_20160607_1?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;failOverReadOnly=false</value>
+		</property>
+		<property name="username">
+        	<value>hic</value>
+        </property>
+        <property name="password">
+        	<value>hic</value>
+        </property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	 
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+   
+   
+   <!-- Dao -->
+	<bean id="baseDao" abstract="true" class="cn.ac.big.circos.dao.IBaseDao" scope="singleton" />
+	<bean id="baseDaoImpl" class="cn.ac.big.circos.dao.impl.BaseDaoImpl">
+		<property name="sessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	
+	<!-- Services -->
+	<bean id="ibaseService" abstract="true" class="cn.ac.big.circos.service.IBaseService" scope="prototype" />
+	<bean id="baseService" class="cn.ac.big.circos.service.impl.BaseServiceImpl">
+		<property name="baseDao" ref="baseDaoImpl" />
+	</bean>
+	
+   
+   
+     
+
+   <bean id="drawPicService" class="cn.ac.big.circos.service.DrawPictureService" scope="prototype"></bean>
+   <bean id="physicalViewAction" class="cn.ac.big.circos.action.PhysicalViewAction" scope="prototype"></bean>
+   <bean id="drawPhysicalService" class="cn.ac.big.circos.service.DrawPhysicalPicService" scope="prototype"></bean>
+	
+	<bean id="topoViewAction" class="cn.ac.big.circos.action.TopoViewAction" scope="prototype"></bean>
+	<bean id="matrixViewAction" class="cn.ac.big.circos.action.MatrixViewAction" scope="prototype"></bean>
+	<bean id="pipelineAction" class="cn.ac.big.circos.action.PipelineAction" scope="prototype"></bean>
+	
+	<bean id="downloadFileAction" class="cn.ac.big.circos.action.DownloadFileAction" scope="prototype"></bean>
+	
+	<bean id="ajaxPhysicalView" class="cn.ac.big.circos.action.ajax.AjaxPhysicalView" scope="prototype"></bean>
+	
+	<bean id="exportAction" class="cn.ac.big.circos.action.ExportAction" scope="prototype"></bean>
+	<bean id="uploadFileAction" class="cn.ac.big.circos.action.UploadFileAction" scope="prototype"></bean>
+</beans>

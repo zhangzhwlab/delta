@@ -1,0 +1,2563 @@
+{
+	 "trackSelector": {
+		"collapsedCategories" : "Annotation,ENCODE,GSE35156",
+		"sortHierarchical" : false
+	 },
+
+
+   "tracks" : [
+      {
+         "chunkSize" : 1000000,
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate" : "seq/{refseq_dirpath}/{refseq}-",
+         "category" : "Reference sequence",
+         "type" : "SequenceTrack",
+         "label" : "DNA",
+         "key" : "Reference sequence"
+      },
+	 
+	  
+	   {
+         "autocomplete" : "all",
+         "track" : "ensembl_gene",
+         "style" : {
+            "color" : "#E32A3A"
+         },
+         
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ],
+		"onClick": {
+			"label": "{name}",
+			"title" : "{name}",
+			"action": "defaultDialog"
+		},
+         "key" : "ensembl_gene",
+         "feature" : [
+            "gene"
+         ],
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "phase" : 1,
+         "urlTemplate" : "tracks/Ensgene/{refseq}/trackData.json",
+         "compress" : 0,
+         "label" : "ensembl_gene",
+         "type" : "FeatureTrack",
+         "category" : "Ensembl"
+      },	  
+	  
+	   {
+"category" : "ENCODE/GM12878/Signal",
+"key"           : "GM12878_DNase-seq_signal",
+"label"         : "GM12878_DNase-seq_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeOpenChromDnaseGm12878Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"autoscale" 	:	"local",
+"variance_band" : false,
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/Signal",
+"key"           : "GM12878_CTCF_signal",
+"label"         : "GM12878_CTCF_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878CtcfStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/Signal",
+"key"           : "GM12878_H3k4me1_signal",
+"label"         : "GM12878_H3k4me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878H3k04me1StdSigV2.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Signal",
+"key"           : "GM12878_H3k4me3_signal",
+"label"         : "GM12878_H3k4me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878H3k04me3StdSigV2.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Signal",
+"key"           : "GM12878_H3k27ac_signal",
+"label"         : "GM12878_H3k27ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878H3k27acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Signal",
+"key"           : "GM12878_H3k27me3_signal",
+"label"         : "GM12878_H3k27me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878H3k27me3StdSigV2.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Signal",
+"key"           : "GM12878_H3k36me3_signal",
+"label"         : "GM12878_H3k36me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878H3k36me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Signal",
+"key"           : "GM12878_H3k4me2_signal",
+"label"         : "GM12878_H3k4me2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878H3k4me2StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Signal",
+"key"           : "GM12878_H3k9ac_signal",
+"label"         : "GM12878_H3k9ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878H3k9acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/Signal",
+"key"           : "GM12878_H4k20me1_signal",
+"label"         : "GM12878_H4k20me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/gm12878/signal/wgEncodeBroadHistoneGm12878H4k20me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signal",
+"key"           : "H1-hESC_DNase-seq_signal",
+"label"         : "H1-hESC_DNase-seq_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeOpenChromDnaseH1hescSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signal",
+"key"           : "H1-hESC_RNA-seq_minus_signal",
+"label"         : "H1-hESC_RNA-seq_minus_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeCshlLongRnaSeqH1hescNucleusLongnonpolyaMinusRawSigRep2.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/H1-hESC/Signal",
+"key"           : "H1-hESC_CTCF_signal",
+"label"         : "H1-hESC_CTCF_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescCtcfStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/H1-hESC/Signal",
+"key"           : "H1-hESC_H3k27me3_signal",
+"label"         : "H1-hESC_H3k27me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescH3k27me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signal",
+"key"           : "H1-hESC_H3k36me3_signal",
+"label"         : "H1-hESC_H3k36me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescH3k36me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signal",
+"key"           : "H1-hESC_H3k4me1_signal",
+"label"         : "H1-hESC_H3k4me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescH3k4me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signal",
+"key"           : "H1-hESC_H3k4me2_signal",
+"label"         : "H1-hESC_H3k4me2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescH3k4me2StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signal",
+"key"           : "H1-hESC_H3k4me3_signal",
+"label"         : "H1-hESC_H3k4me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescH3k4me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/H1-hESC/Signal",
+"key"           : "H1-hESC_H3k9ac_signal",
+"label"         : "H1-hESC_H3k9ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescH3k9acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/Signal",
+"key"           : "H1-hESC_H4k20me1_signal",
+"label"         : "H1-hESC_H4k20me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/h1-hesc/signal/wgEncodeBroadHistoneH1hescH4k20me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/Signal",
+"key"           : "K562_ChIA-PET_CTCF_signal",
+"label"         : "K562_ChIA-PET_CTCF_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeGisChiaPetK562CtcfSigRep1.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signal",
+"key"           : "K562_ChIA-PET_Pol2_signal",
+"label"         : "K562_ChIA-PET_Pol2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeGisChiaPetK562Pol2SigRep1.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/Signal",
+"key"           : "K562_CTCF_signal",
+"label"         : "K562_CTCF_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562CtcfStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/Signal",
+"key"           : "K562_H3k27ac_signal",
+"label"         : "K562_H3k27ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562H3k27acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signal",
+"key"           : "K562_H3k27me3_signal",
+"label"         : "K562_H3k27me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562H3k27me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signal",
+"key"           : "K562_H3k36me3_signal",
+"label"         : "K562_H3k36me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562H3k36me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signal",
+"key"           : "K562_H3k4me1_signal",
+"label"         : "K562_H3k4me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562H3k4me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signal",
+"key"           : "K562_H3k4me3_signal",
+"label"         : "K562_H3k4me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562H3k4me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/Signal",
+"key"           : "K562_H3k9ac_signal",
+"label"         : "K562_H3k9ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562H3k9acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/Signal",
+"key"           : "K562_H3k9me1_signal",
+"label"         : "K562_H3k9me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562H3k9me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/Signal",
+"key"           : "K562_H4k20me1_signal",
+"label"         : "K562_H4k20me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/k562/signal/wgEncodeBroadHistoneK562H4k20me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HeLa-S3/Signal",
+"key"           : "HeLa-S3_DNase-seq_signal",
+"label"         : "HeLa-S3_DNase-seq_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hela-s3/signal/wgEncodeOpenChromDnaseHelas3Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HepG2/Signal",
+"key"           : "HepG2_DNase-seq_signal",
+"label"         : "HepG2_DNase-seq_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeOpenChromDnaseHepg2Sig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HepG2/Signal",
+"key"           : "HepG2_CTCF_signal",
+"label"         : "HepG2_CTCF_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2CtcfStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Signal",
+"key"           : "HepG2_H3k27ac_signal",
+"label"         : "HepG2_H3k27ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2H3k27acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Signal",
+"key"           : "HepG2_H3k27me3_signal",
+"label"         : "HepG2_H3k27me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2H3k27me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Signal",
+"key"           : "HepG2_H3k4me2_signal",
+"label"         : "HepG2_H3k4me2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2H3k4me2StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Signal",
+"key"           : "HepG2_H3k4me3_signal",
+"label"         : "HepG2_H3k4me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2H3k4me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Signal",
+"key"           : "HepG2_H3k9ac_signal",
+"label"         : "HepG2_H3k9ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2H3k9acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/Signal",
+"key"           : "HepG2_H4k20me1_signal",
+"label"         : "HepG2_H4k20me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/hepg2/signal/wgEncodeBroadHistoneHepg2H4k20me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HUVEC/Signal",
+"key"           : "HUVEC_CTCF_signal",
+"label"         : "HUVEC_CTCF_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecCtcfStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HUVEC/Signal",
+"key"           : "HUVEC_H3k27ac_signal",
+"label"         : "HUVEC_H3k27ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH3k27acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signal",
+"key"           : "HUVEC_H3k27me3_signal",
+"label"         : "HUVEC_H3k27me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH3k27me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signal",
+"key"           : "HUVEC_H3k36me3_signal",
+"label"         : "HUVEC_H3k36me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH3k36me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signal",
+"key"           : "HUVEC_H3k4me1_signal",
+"label"         : "HUVEC_H3k4me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH3k4me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signal",
+"key"           : "HUVEC_H3k4me2_signal",
+"label"         : "HUVEC_H3k4me2_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH3k4me2StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signal",
+"key"           : "HUVEC_H3k4me3_signal",
+"label"         : "HUVEC_H3k4me3_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH3k4me3StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HUVEC/Signal",
+"key"           : "HUVEC_H3k9ac_signal",
+"label"         : "HUVEC_H3k9ac_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH3k9acStdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signal",
+"key"           : "HUVEC_H3k9me1_signal",
+"label"         : "HUVEC_H3k9me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH3k9me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/Signal",
+"key"           : "HUVEC_H4k20me1_signal",
+"label"         : "HUVEC_H4k20me1_signal",
+"storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+"urlTemplate"   : "../human/tracks/huvec/signal/wgEncodeBroadHistoneHuvecH4k20me1StdSig.bigWig",
+"type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+"variance_band" : false,
+"autoscale" 	:	"local",
+ "style": {
+"pos_color"         : "blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/peak",
+"label"         : "GM12878_CTCF",
+"key"         : "GM12878_CTCF",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/CTCF/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_CTCF,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_CTCF&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/peak",
+"label"         : "GM12878_H3k4me1",
+"key"         : "GM12878_H3k4me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/H3k4me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_H3k4me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_H3k4me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/peak",
+"label"         : "GM12878_H3k4me3",
+"key"         : "GM12878_H3k4me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/H3k4me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_H3k4me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_H3k4me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/peak",
+"label"         : "GM12878_H3k27ac",
+"key"         : "GM12878_H3k27ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/H3k27ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_H3k27ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_H3k27ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/peak",
+"label"         : "GM12878_H3k27me3",
+"key"         : "GM12878_H3k27me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/H3k27me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_H3k27me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_H3k27me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/peak",
+"label"         : "GM12878_H3k36me3",
+"key"         : "GM12878_H3k36me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/H3k36me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_H3k36me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_H3k36me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/GM12878/peak",
+"label"         : "GM12878_H3k4me2",
+"key"         : "GM12878_H3k4me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/H3k4me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_H3k4me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_H3k4me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/peak",
+"label"         : "GM12878_H3k9ac",
+"key"         : "GM12878_H3k9ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/H3k9ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_H3k9ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_H3k9ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/peak",
+"label"         : "GM12878_H4k20me1",
+"key"         : "GM12878_H4k20me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/H4k20me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_H4k20me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_H4k20me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/GM12878/peak",
+"label"         : "GM12878_DNase-seq",
+"key"         : "GM12878_DNase-seq",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/gm12878/Dnase/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=GM12878_DNase-seq,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,GM12878_DNase-seq&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/H1-hESC/peak",
+"label"         : "H1-hESC_CTCF",
+"key"         : "H1-hESC_CTCF",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/CTCF/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_CTCF,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_CTCF&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/H1-hESC/peak",
+"label"         : "H1-hESC_H3k27me3",
+"key"         : "H1-hESC_H3k27me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/H3k27me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_H3k27me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_H3k27me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/peak",
+"label"         : "H1-hESC_H3k36me3",
+"key"         : "H1-hESC_H3k36me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/H3k36me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_H3k36me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_H3k36me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/peak",
+"label"         : "H1-hESC_H3k4me1",
+"key"         : "H1-hESC_H3k4me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/H3k4me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_H3k4me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_H3k4me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/peak",
+"label"         : "H1-hESC_H3k4me2",
+"key"         : "H1-hESC_H3k4me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/H3k4me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_H3k4me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_H3k4me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/peak",
+"label"         : "H1-hESC_H3k4me3",
+"key"         : "H1-hESC_H3k4me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/H3k4me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_H3k4me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_H3k4me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/peak",
+"label"         : "H1-hESC_H3k9ac",
+"key"         : "H1-hESC_H3k9ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/H3k9ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_H3k9ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_H3k9ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/H1-hESC/peak",
+"label"         : "H1-hESC_H4k20me1",
+"key"         : "H1-hESC_H4k20me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/h1-hesc/H4k20me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=H1-hESC_H4k20me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,H1-hESC_H4k20me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+
+{
+"category" : "ENCODE/K562/peak",
+"label"    : "K562_ChIA-PET_CTCF",
+"key"      : "K562_ChIA-PET_CTCF",
+"style" : {
+            "className" : "feature",
+            "showLabels" : false,
+            "height" : 600,
+            "showTooltips" : false
+         },
+"feature" : [ "arc"],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"trackType" : "JBrowse/View/Track/CanvasFeatures",
+"urlTemplate" : "../human/tracks/k562/ChiaPetCTCF/{refseq}/peak.gff3",
+"maxHeight" : 600,
+"compress" : 0,
+"type" : "JBrowse/View/Track/CanvasFeatures",
+},
+
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_ChIA-PET_Pol2",
+"key"         : "K562_ChIA-PET_Pol2",
+"style" : {
+            "className" : "feature",
+            "showLabels" : false,
+            "height" : 600,
+            "showTooltips" : false
+         },
+"feature" : ["arc"],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"trackType" : "JBrowse/View/Track/CanvasFeatures",
+"urlTemplate" : "../human/tracks/k562/ChiaPetPol2/{refseq}/peak.gff3",
+"maxHeight" : 600,
+"compress" : 0,
+"type" : "JBrowse/View/Track/CanvasFeatures",
+},
+
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_SMC3",
+"key"         : "K562_SMC3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/SMC3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_SMC3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_SMC3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_ZNF143",
+"key"         : "K562_ZNF143",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/ZNF143/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_ZNF143,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_ZNF143&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_CTCF",
+"key"         : "K562_CTCF",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/CTCF/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_CTCF,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_CTCF&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_H3k27ac",
+"key"         : "K562_H3k27ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H3k27ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H3k27ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H3k27ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_H3k27me3",
+"key"         : "K562_H3k27me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H3k27me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H3k27me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H3k27me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_H3k36me3",
+"key"         : "K562_H3k36me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H3k36me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H3k36me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H3k36me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_H3k4me1",
+"key"         : "K562_H3k4me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H3k4me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H3k4me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H3k4me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_H3k4me2",
+"key"         : "K562_H3k4me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H3k4me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H3k4me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H3k4me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_H3k4me3",
+"key"         : "K562_H3k4me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H3k4me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H3k4me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H3k4me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_H3k9ac",
+"key"         : "K562_H3k9ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H3k9ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H3k9ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H3k9ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_H3k9me1",
+"key"         : "K562_H3k9me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H3k9me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H3k9me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H3k9me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/K562/peak",
+"label"         : "K562_H4k20me1",
+"key"         : "K562_H4k20me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/k562/H4k20me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=K562_H4k20me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,K562_H4k20me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"autoscale" 	:	"local",
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HeLa-S3/peak",
+"label"         : "HeLa-S3_ChIA-PET_Pol2",
+"key"         : "HeLa-S3_ChIA-PET_Pol2",
+"style" : {
+            "className" : "feature",
+            "showLabels" : false,
+            "height" : 600,
+            "showTooltips" : false
+         },
+"feature" : ["arc"],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+"trackType" : "JBrowse/View/Track/CanvasFeatures",
+"urlTemplate" : "../human/tracks/hela-s3/ChiaPetPol2/{refseq}/peak.gff3",
+"maxHeight" : 600,
+"compress" : 0,
+"type" : "JBrowse/View/Track/CanvasFeatures",
+},
+
+{
+"category" : "ENCODE/HepG2/peak",
+"label"         : "HepG2_CTCF",
+"key"         : "HepG2_CTCF",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/CTCF/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_CTCF,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_CTCF&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"min_score"     : 0,
+"max_score"     : 200,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HepG2/peak",
+"label"         : "HepG2_H3k27ac",
+"key"         : "HepG2_H3k27ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/H3k27ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_H3k27ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_H3k27ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/peak",
+"label"         : "HepG2_H3k27me3",
+"key"         : "HepG2_H3k27me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/H3k27me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_H3k27me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_H3k27me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"min_score"     : 0,
+"max_score"     : 200,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/peak",
+"label"         : "HepG2_H3k36me3",
+"key"         : "HepG2_H3k36me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/H3k36me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_H3k36me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_H3k36me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/peak",
+"label"         : "HepG2_H3k4me2",
+"key"         : "HepG2_H3k4me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/H3k4me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_H3k4me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_H3k4me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/peak",
+"label"         : "HepG2_H3k4me3",
+"key"         : "HepG2_H3k4me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/H3k4me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_H3k4me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_H3k4me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HepG2/peak",
+"label"         : "HepG2_H3k9ac",
+"key"         : "HepG2_H3k9ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/H3k9ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_H3k9ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_H3k9ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HepG2/peak",
+"label"         : "HepG2_H4k20me1",
+"key"         : "HepG2_H4k20me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/hepg2/H4k20me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HepG2_H4k20me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HepG2_H4k20me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HUVEC/peak",
+"label"         : "HUVEC_CTCF",
+"key"         : "HUVEC_CTCF",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/CTCF/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_CTCF,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_CTCF&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HUVEC/peak",
+"label"         : "HUVEC_H3k27ac",
+"key"         : "HUVEC_H3k27ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H3k27ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H3k27ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H3k27ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/peak",
+"label"         : "HUVEC_H3k27me3",
+"key"         : "HUVEC_H3k27me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H3k27me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H3k27me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H3k27me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/peak",
+"label"         : "HUVEC_H3k36me3",
+"key"         : "HUVEC_H3k36me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H3k36me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H3k36me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H3k36me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/peak",
+"label"         : "HUVEC_H3k4me1",
+"key"         : "HUVEC_H3k4me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H3k4me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H3k4me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H3k4me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/peak",
+"label"         : "HUVEC_H3k4me2",
+"key"         : "HUVEC_H3k4me2",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H3k4me2/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H3k4me2,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H3k4me2&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/peak",
+"label"         : "HUVEC_H3k4me3",
+"key"         : "HUVEC_H3k4me3",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H3k4me3/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H3k4me3,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H3k4me3&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+{
+"category" : "ENCODE/HUVEC/peak",
+"label"         : "HUVEC_H3k9ac",
+"key"         : "HUVEC_H3k9ac",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H3k9ac/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H3k9ac,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H3k9ac&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/peak",
+"label"         : "HUVEC_H3k9me1",
+"key"         : "HUVEC_H3k9me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H3k9me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H3k9me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H3k9me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+{
+"category" : "ENCODE/HUVEC/peak",
+"label"         : "HUVEC_H4k20me1",
+"key"         : "HUVEC_H4k20me1",
+"storeClass"    : "JBrowse/Store/SeqFeature/NCList",
+"urlTemplate"   : "../human/tracks/huvec/H4k20me1/{refseq}/trackData.json",
+"menuTemplate" : [
+{
+"label" :"View details"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?tracks=HUVEC_H4k20me1,Interaction,ensembl_gene&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; }url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Circlet View"
+},
+{
+"iconClass" : "dijitIconFile",
+"url" : "function(track,feature){ var reg = new RegExp('(^|&)data=([^&]*)(&|$)', 'i'); var r = window.location.search.substr(1).match(reg); var data=null;var url='http://hicp.big.ac.cn/pages/visualization/physical_view.jsp?tracks=3dmodel,HUVEC_H4k20me1&';if (r != null) { data=unescape(r[2]); }if(data != null){url +='conf='+data+'&'; } url += 'loc={seq_id}:{start}..{end}' ;return url;}",
+"action" : "newWindow",
+"label" : "Physical View"
+}],
+"type"          : "FeatureTrack",
+"variance_band" : false,
+"style": {
+"pos_color"         :"blue",
+"neg_color"         : "#005EFF",
+"clip_marker_color" : "yellow",
+"height"            : 100
+}
+},
+
+
+{
+"urlTemplate":"../GSE35156/IMR90/40000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "GSE35156/IMR90",
+"label" : "GSE35156_IMR90_40000_Matrix",
+"key" : "GSE35156_IMR90_40000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+{
+"urlTemplate":"../GSE35156/IMR90/40000/tracks/tad/{refseq}/tad.gff3",
+"category" : "GSE35156/IMR90",
+"label" : "GSE35156_IMR90_40000_TAD",
+"key" : "GSE35156_IMR90_40000_TAD",
+"feature" : [
+"tad"
+],
+"storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+ "autocomplete" : "all",
+"track" : "TAD",
+"style" : {
+   "className" : "feature3",
+   "showLabels": false,
+   "showTooltips":false
+ },
+"chunkSizeLimit" : "10000000",
+ "maxFeatureScreenDensity" : "100" ,
+"compress" : 0,
+"type" : "FeatureTrack"
+},
+
+{
+"urlTemplate":"../GSE18199/K562/100000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "GSE18199/K562",
+"label" : "GSE18199_K562_100000_Matrix",
+"key" : "GSE18199_K562_100000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE18199/K562/1000000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "GSE18199/K562",
+"label" : "GSE18199_K562_1000000_Matrix",
+"key" : "GSE18199_K562_1000000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE18199/GM06690/1000000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "GSE18199/GM06690",
+"label" : "GSE18199_GM06690_1000000_Matrix",
+"key" : "GSE18199_GM06690_1000000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+},
+
+{
+"urlTemplate":"../GSE18199/GM06690/100000/tracks/tadstatic/{refseq}/trackData.json",
+"category" : "GSE18199/GM06690",
+"label" : "GSE18199_GM06690_100000_Matrix",
+"key" : "GSE18199_GM06690_100000_Matrix",
+"compress" : 0,
+"style" : {
+"className" : "image"
+ },
+"type" : "ImageTrack.Wiggle",
+}
+
+	  	 
+   ],
+  
+   "dataset_id" : "hg18",
+   "formatVersion" : 1
+}

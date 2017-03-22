@@ -1,0 +1,10 @@
+https://docs.chemaxon.com/display/FF/Gaussian+Cube+format
+Gaussian Cube format
+8 0 0 0
+1 0.2 0 0
+1 0 0.2 0
+1 0 0 0.2
+0 0 0.0000 0.0000 0.0000
+1 0 0.2123 0.0000 0.0000
+2 0 0.1291 0.1493 0.0000
+3 0 0.0817 0.2200 0.0333

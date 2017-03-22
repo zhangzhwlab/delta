@@ -1,0 +1,28 @@
+1,ref.fa
+java -jar /leofs/biocloud/biocloud/script/CreateSequenceDictionary.jar R=ref.fa O=ref.dict
+/leofs/biocloud/biocloud/script/faToTwoBit ref.fa ref.fa.2bit
+2.bwa
+3.samtools
+
+
+select * from tb_job_cluster where cluster_job_id not in (select job_submit_id from tb_jobstatus_queue) and is_validate!=-1 
+
+
+
+canvas.addEventListener('click', hengeview_canvas_click,false);
+canvas.addEventListener('mousemove',hengeview_tp_mmove,false);
+canvas.addEventListener('mouseout',pica_hide,false);
+canvas.addEventListener('mousedown',hengeview_canvas_md,false);
+
+document.body.addEventListener('mousemove',hengeview_blob_mm,false); hengeview_blob_mm交换两个区域
+document.body.addEventListener('mouseup',hengeview_blob_mu,false);
+
+
+获取一定间隔区域结合的统计数据
+
+/leofs/bioweb/tangbx/visualization/software/tabix-master/tabix /leofs/bioweb/tangbx/visualization/download_data/GSE43070/chromatin_inter/K562POL2_chr7.txt.gz hs7:1-159138663 > /share_bio/panfs/biocloud/biocloud/install_soft/get_inter_data.txt
+
+/leofs/bioweb/tangbx/visualization/software/tabix-master/tabix /leofs/bioweb/tangbx/visualization/download_data/GSE43070/H3K4me3/hs7.txt.gz hs7:1-159138663 > /share_bio/panfs/biocloud/biocloud/install_soft/get_histone.txt
+	
+	
+java -jar HicHistogram.jar get_inter_data.txt 1 2 1 159138663 200000 inter_histogram.txt

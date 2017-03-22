@@ -1,0 +1,1176 @@
+{
+	 "trackSelector": {
+		"collapsedCategories" :"Annotation,ENCODE",
+	     "sortHierarchical" : false
+	 },
+   "tracks" : [
+      {
+         "chunkSize" : 1000000,
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate" : "seq/{refseq_dirpath}/{refseq}-",
+         "category" : "Reference sequence",
+         "type" : "SequenceTrack",
+         "label" : "DNA",
+         "key" : "Reference sequence"
+      },
+	   {
+         "autocomplete" : "all",
+         "track" : "ensembl gene",
+         "style" : {
+            "color" : "#E32A3A"
+         },
+         
+		 "menuTemplate" : [
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=ensembl_gene'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=ensembl_gene'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ],
+		 
+         "key" : "ensembl gene",
+         "feature" : [
+            "gene"
+         ],
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "phase" : 1,
+         "urlTemplate" : "../mouse/tracks/Ensgene/{refseq}/trackData.json",
+         "compress" : 0,
+         "label" : "ensembl gene",
+         "type" : "FeatureTrack",
+         "category" : "Ensembl"
+      },	  
+	   {
+         "autocomplete" : "all",
+         "track" : "ensembl transcript",
+		 "class": "transcript",
+         "subfeature_classes" : {
+            "exon" : "exon",
+		},
+         
+		 "menuTemplate" : [
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=transcript'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ],
+		 
+         "key" : "ensembl transcript",
+         "feature" : [
+            "transcript"
+         ],
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "phase" : 1,
+         "urlTemplate" : "../mouse/tracks/Enstrans/{refseq}/trackData.json",
+         "compress" : 0,
+         "label" : "ensembl transcript",
+         "type" : "FeatureTrack",
+         "category" : "Ensembl"
+      },
+	  {
+         "autocomplete" : "all",
+         "track" : "3CDB ARC",
+         "style" : {
+            "className" : "feature",
+            "showLabels" : false,
+            "height" : 900,
+            "showTooltips" : false
+         },
+         "key" : "3C Interaction",
+         "feature" : [
+            "arc"
+         ],
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "trackType" : "JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "../mouse/tracks/3cdb_arc/{refseq}/trackData.json",
+         "maxHeight" : 900,
+         "compress" : 0,
+         "type" : "JBrowse/View/Track/CanvasFeatures",
+         "label" : "3C Interaction",
+         "category" : "3CDB"
+      },
+	  {
+		 "category" : "ENCODE/C2C12/Signal",
+         "label"         : "H3k04me3 C2C12",
+         "key"           : "H3k04me3_C2C12",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/c2c12_signal/wgEncodeCaltechHistC2c12H3k04me3FCntrl50bE2p60hPcr1xSigRep1.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+         "min_score"     : -100,
+         "max_score"     : 100,
+         "style": {
+             "pos_color"         : "#005EFF",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "red",
+             "height"            : 100
+         }
+      },
+      {
+		 "category" : "ENCODE/C2C12/Signal",
+         "label"         : "H3k27me3 C2C12",
+         "key"           : "H3k27me3_C2C12",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/c2c12_signal/wgEncodeCaltechHistC2c12H3k27me3FCntrl32bE2p60hPcr2xSigRep1.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+         "min_score"     : -0.1,
+         "max_score"     : 0.1,
+         "style": {
+             "pos_color"         : "red",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "red",
+             "height"            : 100
+         }
+      },
+	 {
+		 "category" : "ENCODE/C2C12/Signal",
+         "label"         : "RnaSeq C2C12",
+         "key"           : "RnaSeq_C2C12",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/c2c12_signal/wgEncodeCaltechRnaSeqC2c12C3hFR2x75Th131Il200E2p60hSigRep1.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+         "min_score"     : -100,
+         "max_score"     : 100,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	 {
+		 "category" : "ENCODE/CH12/Signal",
+         "label"         : "Repli-chip_CH12",
+         "key"           : "Repli-chip_CH12",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/ch12_signal/wgEncodeFsuRepliChipCh12FWaveSignalRep1.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {
+		 "category" : "ENCODE/CH12/Signal",
+         "label"         : "H3k27me3_CH12",
+         "key"           : "H3k27me3_CH12",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/ch12_signal/wgEncodePsuHistoneCh12H3k27me3FImmortal2a4bInputSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {
+		 "category" : "ENCODE/CH12/Signal",
+         "label"         : "CTCF_CH12",
+         "key"           : "CTCF_CH12",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/ch12_signal/wgEncodePsuTfbsCh12CtcfFImmortal2a4bInputSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {
+		 "category" : "ENCODE/Cortex/Signal",
+         "label"         : "H3k27ac_Cortex",
+         "key"           : "H3k27ac_Cortex",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/Cortex_signal/wgEncodeLicrHistoneCortexH3k27acMAdult8wksC57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  
+	  {
+		 "category" : "ENCODE/Cortex/Signal",
+         "label"         : "H3k4me3_Cortex",
+         "key"           : "H3k4me3_Cortex",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/Cortex_signal/wgEncodeLicrHistoneCortexH3k4me3MAdult8wksC57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  
+	  {
+		 "category" : "ENCODE/Cortex/Signal",
+         "label"         : "RnaSeq_Cortex",
+         "key"           : "RnaSeq_Cortex",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/Cortex_signal/wgEncodeLicrRnaSeqCortexCellPapMAdult8wksC57bl6SigRep1.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  
+	  {
+		 "category" : "ENCODE/Cortex/Signal",
+         "label"         : "Ctcf_Cortex",
+         "key"           : "Ctcf_Cortex",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/Cortex_signal/wgEncodeLicrTfbsCortexCtcfMAdult8wksC57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {
+		 "category" : "ENCODE/Cortex/Signal",
+         "label"         : "Pol2_Cortex",
+         "key"           : "Pol2_Cortex",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/Cortex_signal/wgEncodeLicrTfbsCortexPol2MAdult8wksC57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {
+		 "category" : "ENCODE/ES-Bruce4/Signal",
+         "label"         : "H3k27ac_ES-Bruce4",
+         "key"           : "H3k27ac_ES-Bruce4",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/ESBruce4_signal/wgEncodeLicrHistoneEsb4H3k27acME0C57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  
+	  
+	  {
+		 "category" : "ENCODE/ES-Bruce4/Signal",
+         "label"         : "H3k27me3_ES-Bruce4",
+         "key"           : "H3k27me3_ES-Bruce4",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/ESBruce4_signal/wgEncodeLicrHistoneEsb4H3k27me3ME0C57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {
+		 "category" : "ENCODE/ES-Bruce4/Signal",
+         "label"         : "H3k4me3_ES-Bruce4",
+         "key"           : "H3k4me3_ES-Bruce4",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/ESBruce4_signal/wgEncodeLicrHistoneEsb4H3k4me3ME0C57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  
+	  
+	  {
+		 "category" : "ENCODE/ES-Bruce4/Signal",
+         "label"         : "RnaSeq_ES-Bruce4",
+         "key"           : "RnaSeq_ES-Bruce4",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/ESBruce4_signal/wgEncodeLicrRnaSeqEsb4CellPapME0C57bl6SigRep1.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {
+		 "category" : "ENCODE/ES-Bruce4/Signal",
+         "label"         : "CTCF_ES-Bruce4",
+         "key"           : "Ctcf_ES-Bruce4",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/ESBruce4_signal/wgEncodeLicrTfbsEsb4CtcfME0C57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },	  
+	  {
+		 "category" : "ENCODE/MEF/Signal",
+         "label"         : "H3k27ac_MEF",
+         "key"           : "H3k27ac_MEF",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/mef_signal/wgEncodeLicrHistoneMefH3k27acMAdult8wksC57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	   {
+		 "category" : "ENCODE/MEF/Signal",
+         "label"         : "H3k4me3_MEF",
+         "key"           : "H3k4me3_MEF",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/mef_signal/wgEncodeLicrHistoneMefH3k4me3MAdult8wksC57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },	  
+	  {
+		 "category" : "ENCODE/MEF/Signal",
+         "label"         : "RnaSeq_MEF",
+         "key"           : "RnaSeq_MEF",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/mef_signal/wgEncodeLicrRnaSeqMefCellPapMAdult8wksC57bl6SigRep1.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {
+		 "category" : "ENCODE/MEF/Signal",
+         "label"         : "CtCF_MEF",
+         "key"           : "Ctcf_MEF",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/mef_signal/wgEncodeLicrTfbsMefCtcfMAdult8wksC57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  
+	   {
+		 "category" : "ENCODE/MEF/Signal",
+         "label"         : "Pol2_MEF",
+         "key"           : "Pol2_MEF",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../mouse/tracks/mef_signal/wgEncodeLicrTfbsMefPol2MAdult8wksC57bl6StdSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },   
+	  {
+		 "category" : "ENCODE/C2C12/peak",
+         "label"         : "mouse_c2c12_H3k4me3",
+         "key"           : "mouse_c2c12_H3k4me3",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/c2c12_signal/H3k04me3/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_c2c12_H3k4me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_c2c12_H3k4me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      },	  
+	  {
+		 "category" : "ENCODE/C2C12/peak",
+         "label"         : "mouse_c2c12_H3k27me3",
+         "key"           : "mouse_c2c12_H3k27me3",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/c2c12_signal/H3k27me3/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_c2c12_H3k27me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_c2c12_H3k27me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      },	  
+	   {
+		 "category" : "ENCODE/CH12/peak",
+         "label"         : "mouse_ch12_CTCF",
+         "key"           : "mouse_ch12_CTCF",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/ch12_signal/Ctcf/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_ch12_CTCF'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_ch12_CTCF'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      },
+	  {
+		 "category" : "ENCODE/CH12/peak",
+         "label"         : "mouse_ch12_H3k4me3",
+         "key"           : "mouse_ch12_H3k4me3",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/ch12_signal/H3k04me3/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_ch12_H3k4me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_ch12_H3k4me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      },
+	  {
+		 "category" : "ENCODE/CH12/peak",
+         "label"         : "mouse_ch12_H3k27me3",
+         "key"           : "mouse_ch12_H3k27me3",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/ch12_signal/H3k27me3/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_ch12_H3k27me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_ch12_H3k27me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      },
+	 {
+		 "category" : "ENCODE/Cortex/peak",
+         "label"         : "mouse_cortex_CTCF",
+         "key"           : "mouse_cortex_CTCF",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/Cortex_signal/Ctcf/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_cortex_CTCF'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_cortex_CTCF'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      },
+	  {
+		 "category" : "ENCODE/Cortex/peak",
+         "label"         : "mouse_cortex_H3k27ac",
+         "key"           : "mouse_cortex_H3k27ac",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/Cortex_signal/H3k27ac/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_cortex_H3k27ac'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_cortex_H3k27ac'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      } ,
+	  {
+		 "category" : "ENCODE/Cortex/peak",
+         "label"         : "mouse_cortex_H3k4me3",
+         "key"           : "mouse_cortex_H3k4me3",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/Cortex_signal/H3k4me3/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_cortex_H3k4me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_cortex_H3k4me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      },
+	  {
+		 "category" : "ENCODE/Cortex/peak",
+         "label"         : "mouse_cortex_Pol2",
+         "key"           : "mouse_cortex_Pol2",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/Cortex_signal/Pol2/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_cortex_Pol2'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_cortex_Pol2'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      }	,
+	  {
+		 "category" : "ENCODE/ES-Bruce4/peak",
+         "label"         : "mouse_es-bruce4_CTCF",
+         "key"           : "mouse_es-bruce4_CTCF",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/ESBruce4_signal/Ctcf/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_CTCF'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_CTCF'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      }	,
+	  {
+		 "category" : "ENCODE/ES-Bruce4/peak",
+         "label"         : "mouse_es-bruce4_H3k27ac",
+         "key"           : "mouse_es-bruce4_H3k27ac",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/ESBruce4_signal/H3k27ac/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_H3k27ac'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_H3k27ac'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      }	,
+	  {
+		 "category" : "ENCODE/ES-Bruce4/peak",
+         "label"         : "mouse_es-bruce4_H3k27me3",
+         "key"           : "mouse_es-bruce4_H3k27me3",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/ESBruce4_signal/H3k27me3/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_H3k27me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_H3k27me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      }  ,
+	  {
+		 "category" : "ENCODE/ES-Bruce4/peak",
+         "label"         : "mouse_es-bruce4_H3k4me3",
+         "key"           : "mouse_es-bruce4_H3k4me3",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/ESBruce4_signal/H3k4me3/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_H3k4me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_H3k4me3'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      } ,
+	  {
+		 "category" : "ENCODE/ES-Bruce4/peak",
+         "label"         : "mouse_es-bruce4_P300",
+         "key"           : "mouse_es-bruce4_P300",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/ESBruce4_signal/P300/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_P300'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_P300'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      } ,
+	  {
+		 "category" : "ENCODE/ES-E14/peak",
+         "label"         : "mouse_es-e14_H3k4me3",
+         "key"           : "mouse_es-e14_H3k4me3",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/ESE14_signal/H3k04me3/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_P300'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-bruce4_P300'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      }	,
+	  {
+		 "category" : "ENCODE/ES-E14/peak",
+         "label"         : "mouse_es-e14_H3k27ac",
+         "key"           : "mouse_es-e14_H3k27ac",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/ESE14_signal/H3k27ac/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-e14_H3k27ac'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_es-e14_H3k27ac'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      } ,
+	  {
+		 "category" : "ENCODE/MEF/peak",
+         "label"         : "mouse_mef_CTCF",
+         "key"           : "mouse_mef_CTCF",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/mef_signal/Ctcf/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_mef_CTCF'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_mef_CTCF'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      } ,
+	  {
+		 "category" : "ENCODE/MEF/peak",
+         "label"         : "mouse_mef_H3k27ac",
+         "key"           : "mouse_mef_H3k27ac",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/mef_signal/H3k27ac/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_mef_H3k27ac'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_mef_H3k27ac'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      } ,
+	  {
+		 "category" : "ENCODE/MEF/peak",
+         "label"         : "mouse_mef_H3k4me1",
+         "key"           : "mouse_mef_H3k4me1",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/mef_signal/H3k4me1/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_mef_H3k4me1'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_mef_H3k4me1'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      } ,
+	  {
+		 "category" : "ENCODE/MEF/peak",
+         "label"         : "mouse_mef_Pol2",
+         "key"           : "mouse_mef_Pol2",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../mouse/tracks/mef_signal/Pol2/gff3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         },
+		 "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/pages/visualization/topo_viewm.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_mef_Pol2'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Circlet View"
+			   
+            },
+            {
+			  "iconClass" : "dijitIconFile",
+			  "url" : "function(track,feature){ var url='http://hicp.big.ac.cn/circosweb/pages/visualization/physical_view.jsp?loc={seq_id}:{start}..{end}&tracks=mouse_mef_Pol2'; return url;}",
+			  "action" : "newWindow",
+              "label" : "Physical View"
+            }
+         ]
+      }	  
+
+   ]
+   "dataset_id" : "mouse",
+   "formatVersion" : 1
+}

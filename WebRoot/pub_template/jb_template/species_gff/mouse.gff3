@@ -1,0 +1,23 @@
+##gff-ver 3
+1	，	chromosome	1	195471971	，	，	，	Name=1
+2	，	chromosome	1	182113224	，	，	，	Name=2
+3	，	chromosome	1	160039680	，	，	，	Name=3
+4	，	chromosome	1	156508116	，	，	，	Name=4
+5	，	chromosome	1	151834684	，	，	，	Name=5
+6	，	chromosome	1	149736546	，	，	，	Name=6
+7	，	chromosome	1	145441459	，	，	，	Name=7
+8	，	chromosome	1	129401213	，	，	，	Name=8
+9	，	chromosome	1	124595110	，	，	，	Name=9
+10	，	chromosome	1	130694993	，	，	，	Name=10
+11	，	chromosome	1	122082543	，	，	，	Name=11
+12	，	chromosome	1	120129022	，	，	，	Name=12
+13	，	chromosome	1	120421639	，	，	，	Name=13
+14	，	chromosome	1	124902244	，	，	，	Name=14
+15	，	chromosome	1	104043685	，	，	，	Name=15
+16	，	chromosome	1	98207768	，	，	，	Name=16
+17	，	chromosome	1	94987271	，	，	，	Name=17
+18	，	chromosome	1	90702639	，	，	，	Name=18
+19	，	chromosome	1	61431566	，	，	，	Name=19
+X	，	chromosome	1	171031299	，	，	，	Name=X
+Y	，	chromosome	1	91744698	，	，	，	Name=Y
+M	，	chromosome	1	16299	，	，	，	Name=M

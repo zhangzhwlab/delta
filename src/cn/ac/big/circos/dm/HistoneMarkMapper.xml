@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ac.big.circos">
+	<resultMap id="HistoneMarkMap" type="cn.ac.big.circos.po.HistoneMarkBean">
+		<id property="hmid" column="hmid" />
+		<result property="orgname" column="orgname" />
+		<result property="cellname" column="cellname" />
+		<result property="histonename" column="histonename" />
+		<result property="start" column="start" />
+		<result property="end" column="end" />
+		<result property="chrom" column="chrom" />	
+		<result property="source" column="source" />
+		<result property="quality" column="quality" />
+	</resultMap>
+	
+	
+	
+	
+	<resultMap id="CellHisMap" type="cn.ac.big.circos.po.CellHisBean">
+		<result property="cellName" column="cellname" />
+		<result property="orgName" column="orgname" />
+		<result property="hisName" column="hisname" />
+	</resultMap>	
+	
+	<select id="selectHistoneMark" parameterType="java.util.Map" resultMap="GeneMap">
+		select * from ${table} where 1=1
+		<if test="orgname != null">
+			and orgname=#{orgname}
+		</if>
+		<if test="cellname != null">
+			and cellname=#{cellname}
+		</if>
+		
+		<if test="histonename != null">
+			and histonename=#{histonename}
+		</if>
+		<if test="chrom != null">
+			and chrom=#{chrom}
+		</if>
+		<if test="start != null">
+			and start &gt;=#{start}	
+		</if>
+	    <if test="end != null">
+			and end &lt;=#{end}	
+		</if>
+		
+	</select>
+	
+	
+	<select id="selectCellTypeByOrg" parameterType="java.util.Map" resultMap="CellHisMap">
+		select distinct cellname from tb_org_cell_histone where orgname=#{orgname}
+	
+	</select>
+	
+	<select id="selectHismarkByOrgCell"  parameterType="java.util.Map" resultMap="CellHisMap">
+		select distinct hisname from tb_org_cell_histone where orgname=#{orgname} and cellname=#{cellname}
+	
+	</select>	
+	
+</mapper>

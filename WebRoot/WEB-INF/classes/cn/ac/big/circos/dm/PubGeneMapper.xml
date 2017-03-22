@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ac.big.circos">
+	<resultMap id="GeneMap" type="cn.ac.big.circos.po.PubGeneBean">
+		<id property="geneId" column="gene_id" />
+		<result property="geneCount" column="gene_count" />
+		<result property="ensGeneId" column="ens_gene_id" />
+		<result property="synonym" column="synonym" />
+		<result property="chrom" column="ens_gene_chr" />
+		<result property="start" column="ens_gene_start" />
+		<result property="end" column="ens_gene_end" />
+		<result property="strand" column="strand" />	
+		<result property="tss" column="tss" />
+	</resultMap>
+	
+	<select id="selectGeneCount" parameterType="java.util.Map" resultMap="GeneMap">
+	
+		select count(distinct ens_gene_id) as gene_count  from ${table} where 1=1
+		<if test="chr != null">
+			and ens_gene_chr=#{chr}
+		</if>
+		<if test="start != null">
+			and ens_gene_start &gt;= #{start}
+		</if>
+		<if test="end != null">
+			and ens_gene_end &lt;= #{end}
+		</if>
+		<if test="genename != null">
+			and synonym=#{genename}	
+		</if>		
+		
+		
+	</select>
+		
+	
+	
+	<select id="selectAllGene" parameterType="java.util.Map" resultMap="GeneMap">
+	
+		select
+		distinct ens_gene_id,synonym,ens_gene_chr,ens_gene_start,ens_gene_end,strand  from ${table} where 1=1 
+		<if test="chr != null">
+			and ens_gene_chr=#{chr}
+		</if>
+		<if test="start != null and end != null">
+			and ((ens_gene_start &gt;= #{start} and ens_gene_start &lt;= #{end}) or (ens_gene_end &gt;= #{start} and ens_gene_end &lt;= #{end} or (ens_gene_start &lt;#{start} and ens_gene_end &gt;#{end})))
+		</if>		
+		<if test="genelist != null">
+			and synonym in 
+			<foreach item="item" index="index" collection="genelist" open="(" separator="," close=")">
+	          #{item}
+	        </foreach>	
+		</if>		
+		limit ${p1},${p2}
+		
+	</select>
+	
+	
+	<select id="selectGeneForScope" parameterType="java.util.Map" resultMap="GeneMap">
+		select
+		distinct ens_gene_id,synonym,ens_gene_chr,ens_gene_start,ens_gene_end,strand  from ${table} where
+		ens_gene_chr=#{chr}
+		and ( (ens_gene_start &gt;= #{start} and ens_gene_start &lt;= #{end}) or (ens_gene_end &gt;= #{start} and ens_gene_end &lt;= #{end} or (ens_gene_start &lt;#{start} and ens_gene_end &gt;#{end})))
+	</select>
+	
+	
+</mapper>

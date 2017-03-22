@@ -1,0 +1,59 @@
+{
+   "stats" : { 
+       "global_min": #min,
+       "global_max": #max
+    },
+   "zoomLevels" : [
+      {
+         "urlPrefix" : "100/",
+         "height" : 600,
+         "basesPerTile" : #10
+      },
+      {
+         "urlPrefix" : "200/",
+         "height" : 600,
+         "basesPerTile" : #9
+      },
+      {
+         "urlPrefix" : "500/",
+         "height" : 600,
+         "basesPerTile" : #8
+      },
+      {
+         "urlPrefix" : "1000/",
+         "height" : 600,
+         "basesPerTile" : #7
+      },
+      {
+         "urlPrefix" : "2000/",
+         "height" : 600,
+         "basesPerTile" : #6
+      },
+      {
+         "urlPrefix" : "5000/",
+         "height" : 600,
+         "basesPerTile" : #5
+      },
+      {
+         "urlPrefix" : "10000/",
+         "height" : 600,
+         "basesPerTile" : #4
+      },
+      {
+         "urlPrefix" : "20000/",
+         "height" : 600,
+         "basesPerTile" : #3
+      },
+      {
+         "urlPrefix" : "50000/",
+         "height" : 600,
+         "basesPerTile" : #2
+      },
+      {
+         "urlPrefix" : "100000/",
+         "height" : 600,
+         "basesPerTile" : #1
+      }
+   ],
+   "tileWidth" : 1200
+}

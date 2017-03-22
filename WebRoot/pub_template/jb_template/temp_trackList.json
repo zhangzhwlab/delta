@@ -1,0 +1,619 @@
+{
+   "tracks" : [	
+	   {
+         "chunkSize" : 1000000,
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate" : "seq/{refseq_dirpath}/{refseq}-",
+         "category" : "Reference sequence",
+         "type" : "SequenceTrack",
+         "label" : "DNA",
+         "key" : "Reference sequence"
+      },   
+	  {
+         "urlTemplate" : "tracks/tadstatic/{refseq}/trackData.json",
+         "compress" : 0,
+         "style" : {
+            "className" : "image"
+         },
+		 "category" : "My track",
+         "type" : "ImageTrack.Wiggle",
+         "label" : "matrix",
+         "key" : "matrix"
+      },
+	  {  
+         "key" : "peak",
+         "feature" : [
+            "arc"
+         ],       
+         "storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+         "category" : "My track",       
+         "autocomplete" : "all",
+         "track" : "ARC",
+         "style" : {
+            "className" : "feature",
+			"showLabels": false,
+			"showTooltips":false
+         },
+         "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+               "label" : "Zoom this Interaction"
+            },
+            {
+               "label" : "Highlight this Interaction"
+            },
+            {
+               "iconClass" : "dijitIconDatabase",
+               "action" : "contentDialog",
+               "content" : "<h2>{name}</h2>This is some test content about {type} {name}, which goes from {start} to {end} on the {strand} strand.",
+               "label" : "Popup with content snippet from string (feature {name})",
+               "title" : "{randomNumberTitle}"
+            }
+         ],
+		"chunkSizeLimit" : "10000000",
+        "maxFeatureScreenDensity" : "20" , 
+		"trackType" : "src/JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "tracks/arc/{refseq}/arc.gff3",
+         "compress" : 0,
+         "label" : "peak",
+         "type" : "src/JBrowse/View/Track/CanvasFeatures"
+      },   
+	  {        
+         "key" : "tad call",
+         "feature" : [
+            "tad"
+         ],       
+         "storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+         "category" : "My track",      
+         "autocomplete" : "all",
+         "track" : "TAD",
+         "style" : {
+            "className" : "feature3",
+			"showLabels": false,
+			"showTooltips":false
+         },
+         "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+               "label" : "Zoom this Interaction"
+            },
+            {
+               "label" : "Highlight this Interaction"
+            },
+            {
+               "iconClass" : "dijitIconDatabase",
+               "action" : "contentDialog",
+               "content" : "<h2>{name}</h2>This is some test content about {type} {name}, which goes from {start} to {end} on the {strand} strand.",
+               "label" : "Popup with content snippet from string (feature {name})",
+               "title" : "{randomNumberTitle}"
+            }
+         ],
+		 "chunkSizeLimit" : "10000000",
+         "maxFeatureScreenDensity" : "100" ,
+         "urlTemplate" : "tracks/tad/{refseq}/tad.gff3",
+         "compress" : 0,
+         "label" : "TAD domain",
+         "type" : "FeatureTrack"
+      },
+	  {
+         "autocomplete" : "all",
+         "track" : "Genes",
+         "style" : {
+            "className" : "feature2",
+         },
+         "key" : "Ensembl Gene",
+         "feature" : [
+            "gene"
+         ],
+         "storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate" : "../GSE63525_IMR90/tracks/Ensgene/{refseq}/chr1.gff3.filter.srt",
+         "compress" : 0,
+         "category" : "Annotation",
+         "type" : "FeatureTrack",
+         "label" : "Genes",
+         "subfeatures" : true
+
+      },
+	  {        
+         "onClick" : {
+            "action" : "defaultDialog",
+            "label" : "<div style='font:normal 12px Univers,Helvetica,Arial,sans-serif'><div style='font-weight:bold'>Custom tooltip</div><div style='color:blue;'>Feature name: {name}<br />Feature start: {start}<br />Feature end: {end}</div></div>",
+            "title" : "{type} {name}"
+         },
+         "key" : "1Mb",
+         "feature" : [
+            "tad"
+         ],       
+         "storeClass" : "JBrowse/Store/SeqFeature/HICTabix",
+         "category" : "GSE63525/TAD",
+        
+         "autocomplete" : "all",
+         "track" : "TAD_1mb",
+         "style" : {
+            "className" : "feature",
+			"showLabels": false,
+			"showTooltips":false
+         },
+         "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+               "label" : "Zoom this Interaction"
+            },
+            {
+               "label" : "Highlight this Interaction"
+            },
+            {
+               "iconClass" : "dijitIconDatabase",
+               "action" : "contentDialog",
+               "content" : "<h2>{name}</h2>This is some test content about {type} {name}, which goes from {start} to {end} on the {strand} strand.",
+               "label" : "Popup with content snippet from string (feature {name})",
+               "title" : "{randomNumberTitle}"
+            }
+         ],
+		"chunkSizeLimit" : "10000000" ,
+         "maxFeatureScreenDensity" : "40" ,
+         "trackType" : "JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "../GSE63525_IMR90/tracks/TAD/{refseq}/chr1_1mb.RAWobserved.tad.srt.mm.gff3.gz",
+         "compress" : 0,
+         "label" : "TAD_1mb",
+         "type" : "JBrowse/View/Track/CanvasFeatures"
+      },
+	  	  {        
+         "onClick" : {
+            "action" : "defaultDialog",
+            "label" : "<div style='font:normal 12px Univers,Helvetica,Arial,sans-serif'><div style='font-weight:bold'>Custom tooltip</div><div style='color:blue;'>Feature name: {name}<br />Feature start: {start}<br />Feature end: {end}</div></div>",
+            "title" : "{type} {name}"
+         },
+         "key" : "500kb",
+         "feature" : [
+            "tad"
+         ],       
+         "storeClass" : "JBrowse/Store/SeqFeature/HICTabix",
+         "category" : "GSE63525/TAD",
+        
+         "autocomplete" : "all",
+         "track" : "TAD_500",
+         "style" : {
+            "className" : "feature",
+			"showLabels": false,
+			"showTooltips":false
+         },
+         "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+               "label" : "Zoom this Interaction"
+            },
+            {
+               "label" : "Highlight this Interaction"
+            },
+            {
+               "iconClass" : "dijitIconDatabase",
+               "action" : "contentDialog",
+               "content" : "<h2>{name}</h2>This is some test content about {type} {name}, which goes from {start} to {end} on the {strand} strand.",
+               "label" : "Popup with content snippet from string (feature {name})",
+               "title" : "{randomNumberTitle}"
+            }
+         ],
+		 "chunkSizeLimit" : "10000000" ,
+         "maxFeatureScreenDensity" : "80" ,
+         "trackType" : "JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "../GSE63525_IMR90/tracks/TAD/{refseq}/chr1_500kb.RAWobserved.tad.srt.mm.gff3.gz",
+         "compress" : 0,
+         "label" : "TAD_500",
+         "type" : "JBrowse/View/Track/CanvasFeatures"
+      },
+	  {        
+         "onClick" : {
+            "action" : "defaultDialog",
+            "label" : "<div style='font:normal 12px Univers,Helvetica,Arial,sans-serif'><div style='font-weight:bold'>Custom tooltip</div><div style='color:blue;'>Feature name: {name}<br />Feature start: {start}<br />Feature end: {end}</div></div>",
+            "title" : "{type} {name}"
+         },
+         "key" : "250kb",
+         "feature" : [
+            "tad"
+         ],       
+         "storeClass" : "JBrowse/Store/SeqFeature/HICTabix",
+         "category" : "GSE63525/TAD",
+        
+         "autocomplete" : "all",
+         "track" : "TAD_250",
+         "style" : {
+            "className" : "feature",
+			"showLabels": false,
+			"showTooltips":false
+         },
+         "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+               "label" : "Zoom this Interaction"
+            },
+            {
+               "label" : "Highlight this Interaction"
+            },
+            {
+               "iconClass" : "dijitIconDatabase",
+               "action" : "contentDialog",
+               "content" : "<h2>{name}</h2>This is some test content about {type} {name}, which goes from {start} to {end} on the {strand} strand.",
+               "label" : "Popup with content snippet from string (feature {name})",
+               "title" : "{randomNumberTitle}"
+            }
+         ],
+		 "chunkSizeLimit" : "10000000",
+         "maxFeatureScreenDensity" : "40" ,
+         "trackType" : "JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "../GSE63525_IMR90/tracks/TAD/{refseq}/chr1_250kb.RAWobserved.tad.srt.mm.gff3.gz",
+         "compress" : 0,
+         "label" : "TAD_250",
+         "type" : "JBrowse/View/Track/CanvasFeatures"
+      },
+	  {        
+         "category" : "GSE63525/TAD",       
+         "autocomplete" : "all",
+         "track" : "TAD_100kb",
+         "compress" : 0,
+         "style" : {
+            "className" : "image"
+         },
+		 
+         "urlTemplate" : "../GSE63525_IMR90/tracks/TADStatic100kb/{refseq}/trackData.json",
+         "compress" : 0,
+		 "type" : "ImageTrack.Wiggle",
+         "label" : "TAD_100kb"
+      },
+	  {        
+         "onClick" : {
+            "action" : "defaultDialog",
+            "label" : "<div style='font:normal 12px Univers,Helvetica,Arial,sans-serif'><div style='font-weight:bold'>Custom tooltip</div><div style='color:blue;'>Feature name: {name}<br />Feature start: {start}<br />Feature end: {end}</div></div>",
+            "title" : "{type} {name}"
+         },
+         "key" : "5kb",
+         "feature" : [
+            "tad"
+         ],       
+         "storeClass" : "JBrowse/Store/SeqFeature/HICTabix",
+         "category" : "GSE63525/TAD",
+        
+         "autocomplete" : "all",
+         "track" : "TAD_5kb",
+         "style" : {
+            "className" : "feature",
+			"showLabels": false,
+			"showTooltips":false
+         },
+         "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+               "label" : "Zoom this Interaction"
+            },
+            {
+               "label" : "Highlight this Interaction"
+            },
+            {
+               "iconClass" : "dijitIconDatabase",
+               "action" : "contentDialog",
+               "content" : "<h2>{name}</h2>This is some test content about {type} {name}, which goes from {start} to {end} on the {strand} strand.",
+               "label" : "Popup with content snippet from string (feature {name})",
+               "title" : "{randomNumberTitle}"
+            }
+         ],
+		 "chunkSizeLimit" : "10000000",
+         "maxFeatureScreenDensity" : "100" ,
+         "trackType" : "JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "../GSE63525_IMR90/tracks/TAD/{refseq}/chr1_5kb.RAWobserved.tad.srt.mm.gff3.gz",
+         "compress" : 0,
+         "label" : "TAD_5kb",
+         "type" : "JBrowse/View/Track/CanvasFeatures"
+      },
+	  {
+         "urlTemplate" : "../GSE63525_IMR90/tracks/TADStatic/{refseq}/trackData.json",
+         "compress" : 0,
+         "style" : {
+            "className" : "image"
+         },
+         "type" : "ImageTrack.Wiggle",
+         "label" : "TAD static",
+         "key" : "TAD static"
+      },
+	  {
+            "onClick" : {
+            "action" : "defaultDialog",
+            "label" : "<div style='font:normal 12px Univers,Helvetica,Arial,sans-serif'><div style='font-weight:bold'>Custom tooltip</div><div style='color:blue;'>Feature name: {name}<br />Feature start: {start}<br />Feature end: {end}</div></div>",
+            "title" : "{type} {name}"
+         },
+         "key" : "CanvasFeatures - Heatmap",
+         "feature" : [
+            "heatmap"
+         ],       
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "category" : "HiC",       
+         "autocomplete" : "all",
+         "track" : "heatmap",
+         "style" : {
+            "className" : "feature",
+			"showLabels": false,
+			"showTooltips":false
+         },
+         "trackType" : "JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "../GSE63525_IMR90/tracks/Heatmap/{refseq}/trackData.json",
+         "compress" : 0,
+         "label" : "heatmap",
+         "type" : "JBrowse/View/Track/CanvasFeatures" 
+	  },
+	 {        
+         "onClick" : {
+            "action" : "defaultDialog",
+            "label" : "<div style='font:normal 12px Univers,Helvetica,Arial,sans-serif'><div style='font-weight:bold'>Custom tooltip</div><div style='color:blue;'>Feature name: {name}<br />Feature start: {start}<br />Feature end: {end}</div></div>",
+            "title" : "{type} {name}"
+         },
+         "key" : "HiC/Interaction (ARC)",
+         "feature" : [
+            "arc"
+         ],       
+         "storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+         "category" : "HiC",       
+         "autocomplete" : "all",
+         "track" : "ARC",
+         "style" : {
+            "className" : "feature",
+			"showLabels": false,
+			"showTooltips":false
+         },
+         "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+               "label" : "Zoom this Interaction"
+            },
+            {
+               "label" : "Highlight this Interaction"
+            },
+            {
+               "iconClass" : "dijitIconDatabase",
+               "action" : "contentDialog",
+               "content" : "<h2>{name}</h2>This is some test content about {type} {name}, which goes from {start} to {end} on the {strand} strand.",
+               "label" : "Popup with content snippet from string (feature {name})",
+               "title" : "{randomNumberTitle}"
+            }
+         ],
+	 "chunkSizeLimit" : "10000000",
+        "maxFeatureScreenDensity" : "20" , 
+	"trackType" : "JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "../GSE63525_IMR90/tracks/ARC/{refseq}/chr1_100kb.RAWobserved.arc.srt.gff3",
+         "compress" : 0,
+         "label" : "ARC",
+         "type" : "JBrowse/View/Track/CanvasFeatures"
+      },
+	  {
+		 "category" : "ENCODE/IMR90",
+         "label"         : "CTCFsig",
+         "key"           : "CTCF ",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../GSE63525_IMR90/tracks/CTCFsig/wgEncodeSydhTfbsImr90CtcfbIggrabSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+         "min_score"     : -100,
+         "max_score"     : 100,
+         "style": {
+             "pos_color"         : "#005EFF",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "red",
+             "height"            : 100
+         }
+      },
+      {
+		 "category" : "ENCODE/IMR90",
+         "label"         : "DNaseSeq",
+         "key"           : "DNase Seq",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../GSE63525_IMR90/tracks/DNaseSeq/wgEncodeOpenChromDnaseImr90Sig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+         "min_score"     : -0.1,
+         "max_score"     : 0.1,
+         "style": {
+             "pos_color"         : "red",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "red",
+             "height"            : 100
+         }
+      },
+	 {
+		 "category" : "ENCODE/IMR90",
+         "label"         : "rad21",
+         "key"           : "RAD21",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../GSE63525_IMR90/tracks/RAD21sig/wgEncodeSydhTfbsImr90Rad21IggrabSig.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+         "min_score"     : -100,
+         "max_score"     : 100,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	 {
+		 "category" : "ENCODE/IMR90",
+         "label"         : "Repli-chip(Replication Timing)",
+         "key"           : "Repli-chip",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../GSE63525_IMR90/tracks/Replichip/wgEncodeFsuRepliChipImr90WaveSignalRep1.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {
+		 "category" : "ENCODE/GM12878",
+         "label"         : "RIP seq",
+         "key"           : "RIP seq",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../GSE63525_IMR90/tracks/gm12878_ripseq/wgEncodeSunyRipSeqGm12878RipinputSigRep1.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {
+		 "category" : "ENCODE/GM12878",
+         "label"         : "RNA seq plus",
+         "key"           : "RNA seq plus",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../GSE63525_IMR90/tracks/gm12878_rnaseq_plus/wgEncodeCshlLongRnaSeqGm12878NucleolusTotalPlusSignalRep4.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {
+		 "category" : "ENCODE/GM12878",
+         "label"         : "RNA seq minus",
+         "key"           : "RNA seq minus",
+         "storeClass"    : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate"   : "../GSE63525_IMR90/tracks/gm12878_rnaseq_minus/wgEncodeCshlLongRnaSeqGm12878NucleolusTotalMinusSignalRep4.bigWig",
+         "type"          : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  
+	  {
+		 "category" : "ENCODE/GM12878/peak",
+         "label"         : "NFE2",
+         "key"           : "NFE2",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../GSE63525_IMR90/tracks/NFE2/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  
+	  {
+		 "category" : "ENCODE/GM12878/peak",
+         "label"         : "RAD21",
+         "key"           : "RAD21",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../GSE63525_IMR90/tracks/gm12878_RAD21/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  
+	  {
+		 "category" : "ENCODE/GM12878/peak",
+         "label"         : "SMC3",
+         "key"           : "SMC3",
+         "storeClass"    : "JBrowse/Store/SeqFeature/GFF3",
+         "urlTemplate"   : "../GSE63525_IMR90/tracks/gm12878_SMC3/{refseq}/peak.gff3",
+         "type"          : "FeatureTrack",
+         "variance_band" : false,
+		 "min_score"     : -200,
+         "max_score"     : 200,
+         "style": {
+             "pos_color"         : "blue",
+             "neg_color"         : "#005EFF",
+             "clip_marker_color" : "yellow",
+             "height"            : 100
+         }
+      },
+	  {        
+         "onClick" : {
+            "action" : "defaultDialog",
+            "label" : "<div style='font:normal 12px Univers,Helvetica,Arial,sans-serif'><div style='font-weight:bold'>Custom tooltip</div><div style='color:blue;'>Feature name: {name}<br />Feature start: {start}<br />Feature end: {end}</div></div>",
+            "title" : "{type} {name}"
+         },
+         "key" : "TAD",
+         "feature" : [
+            "tad"
+         ],       
+         "storeClass" : "JBrowse/Store/SeqFeature/GFF3",
+         "category" : "GSE35156",
+        
+         "autocomplete" : "all",
+         "track" : "TAD",
+         "style" : {
+            "className" : "feature3",
+			"showLabels": false,
+			"showTooltips":false
+         },
+         "menuTemplate" : [
+            {
+               "label" : "View details"
+            },
+            {
+               "label" : "Zoom this Interaction"
+            },
+            {
+               "label" : "Highlight this Interaction"
+            },
+            {
+               "iconClass" : "dijitIconDatabase",
+               "action" : "contentDialog",
+               "content" : "<h2>{name}</h2>This is some test content about {type} {name}, which goes from {start} to {end} on the {strand} strand.",
+               "label" : "Popup with content snippet from string (feature {name})",
+               "title" : "{randomNumberTitle}"
+            }
+         ],
+		 "chunkSizeLimit" : "10000000",
+         "maxFeatureScreenDensity" : "100" ,
+         "urlTemplate" : "../GSE63525_IMR90/tracks/GSE35156_TAD/{refseq}/chr1.domain.srt.gff3",
+         "compress" : 0,
+         "label" : "TAD",
+         "type" : "FeatureTrack"
+      }
+
+   ],
+   "dataset_id" : "jobid",
+   "formatVersion" : 1
+}

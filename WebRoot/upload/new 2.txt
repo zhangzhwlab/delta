@@ -1,0 +1,12 @@
+http://biocloud.big.ac.cn/commoncfg/transformUCSCAction.action?infile=/share_bio/panfs/biocloud/biocloud/pri_dataspace/test@big.ac.cn/input_test/testre.bed
+
+
+
+http://genome.ucsc.edu/cgi-bin/hgTracks?org=human&position=chr12:1600-86941&hgt.customText=http://biocloud.big.ac.cn/commoncfg/transformUCSCAction.action?infile=/share_bio/panfs/biocloud/biocloud/pri_dataspace/test@big.ac.cn/input_test/testucsc.bed
+
+
+http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg18&position=chr12:1600-86941&hgct_customText=track%20type=bedDetail%20name=myBedTrack%20description=%22a%20bigBed%20track%22%20visibility=full%20bigDataUrl=http://biocloud.big.ac.cn/commoncfg/transformUCSCAction.action?infile=/share_bio/panfs/biocloud/biocloud/pri_dataspace/test@big.ac.cn/input_test/testucsc.bed
+
+http://user:password@http://biocloud.big.ac.cn/login&org=human&position=chr12:1600-86941&hgt.customText=http://biocloud.big.ac.cn/commoncfg/transformUCSCAction.action?infile=/share_bio/panfs/biocloud/biocloud/pri_dataspace/test@big.ac.cn/input_test/testucsc.bed
+
+ucsc genome code https://genome.ucsc.edu/FAQ/FAQreleases.html#release1

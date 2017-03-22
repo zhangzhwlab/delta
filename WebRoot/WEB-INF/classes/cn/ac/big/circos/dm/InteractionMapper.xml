@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ac.big.circos">
+	<resultMap id="PeakMap" type="cn.ac.big.circos.po.PeakBean">
+		<id property="peakId" column="peak_id" />
+		<result property="chrom" column="chrom" />
+		<result property="start" column="start" />
+		<result property="end" column="end" />
+		<result property="note" column="note" />
+	</resultMap>
+	
+	<resultMap id="HistoneDensityMap" type="cn.ac.big.circos.po.PeakBean">
+		<id property="peakId" column="hm_id" />
+		<result property="chrom" column="chrom" />
+		<result property="start" column="start" />
+		<result property="end" column="end" />
+		<result property="note" column="note" />
+		<result property="source" column="source" />
+		<result property="type" column="type" />
+		<result property="score" column="score" />
+		<result property="binsize" column="binsize" />
+		<result property="perbin" column="perbin"/>
+	</resultMap>
+	
+	
+	<resultMap id="PhysicalModelMap" type="cn.ac.big.circos.po.PhysicalModelBean">
+		<id property="modelId" column="model_id" />
+		<result property="modelName" column="model_name" />
+		<result property="species" column="species" />
+		<result property="binSize" column="bin_size" />
+		<result property="glyphType" column="glyph_type" />
+		<result property="storage" column="storage" />
+		<result property="startBin" column="start_bin" />
+		<result property="file" column="file" />
+		<result property="key" column="key" />
+		<result property="category" column="category" />
+		<result property="tadTrack" column="tad_track" />
+		<result property="interactionTrack" column="interaction_track" />
+	</resultMap>
+	
+	<select id="selectPeakList" parameterType="java.util.Map" resultMap="PeakMap">	
+		select * from  ${table}  where chrom=#{chrom} and start&gt;=#{start} and end&lt;=#{end}
+		<if test=" binsize != null">
+			and binsize=#{binsize}
+		</if>
+	</select>
+		
+	<select id="selectPeakAnchorList" parameterType="java.util.Map" resultMap="PeakMap">	
+		select * from  ${table} where chrom=#{chrom} and ((start&gt;=#{start} and start&lt;=#{end}) and (end&gt;=#{start} and end&lt;=#{end}))
+		<if test=" binsize != null ">
+		 and binsize=#{binsize}		
+		 
+		 </if>
+	</select>
+	
+	<select id="selectHistoneList" parameterType="java.util.Map" resultMap="HistoneDensityMap">
+		select chrom,start,end,score,note from ${table} where binsize=#{binsize} and perbin=#{perbin} and chrom=#{chrom} and start &gt;=#{start} and end &lt;=#{end}
+	</select>
+	
+	
+	<select id="selectAllPhysicalModelList"  parameterType="java.util.Map" resultMap="PhysicalModelMap">
+		select distinct model_name,species from tb_3dmodel where 1=1
+		<if test=" species != null ">
+			and species=#{species}
+		</if>		
+	</select>
+	
+	
+    <select id="selectGivenPhysicalModelBinList"  resultMap="PhysicalModelMap">
+		select bin_size from tb_3dmodel	where model_name=#{modelName}
+			
+	</select>
+	
+	
+	<select id="selectPhysicalModelByNameandBin" resultMap="PhysicalModelMap">
+		select * from tb_3dmodel where model_name=#{modelname} and bin_size=#{binsize}
+	</select>
+	
+</mapper>

@@ -1,0 +1,9 @@
+ soap （无结果测试目录）
+
+ 
+ SAMtools
+ samtoolsindex（无结果目录）
+ 
+ 
+ VarScanPileup2snp(测试目录下没有正常结果)
+ 

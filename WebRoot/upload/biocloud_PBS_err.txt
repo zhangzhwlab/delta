@@ -1,0 +1,28 @@
+submit task name=convert_c2t_or_g2a_4
+perl /leofs/biocloud/biocloud/script/convert_c2t_or_g2a.pl -i /share_bio/panfs/biocloud/biocloud/pri_dataspace/liangf@big.ac.cn/inData/WBSA/rawdata/test2.fastq -p p2 -o /share_bio/panfs/biocloud/biocloud/pri_dataspace/liangf@big.ac.cn/outData/WGBS_pairend/1439369724251/convert_c2t_or_g2a_4/reads2.fq
+
+
+
+select job_id,a.result_dir,module_name,b.module_number,pipeline_name,cluster_job_id from tb_job a ,tb_modules b,tb_job_cluster c where a.j_id=c.jid and b.module_id=c.module_id and c.jid=? and c.module_id=? 
+2015-08-12 22:39:45,799 DEBUG [java.sql.PreparedStatement] - ==> Parameters: 1191(Integer), 166(Integer)
+2015-08-12 22:39:45,801 DEBUG [java.sql.ResultSet] - <==    Columns: job_id, result_dir, module_name, module_number, pipeline_name, cluster_job_id
+2015-08-12 22:39:45,801 DEBUG [java.sql.ResultSet] - <==        Row: 1439369724251, 
+/share_bio/panfs/biocloud/biocloud/pri_dataspace/liangf@big.ac.cn/outData, convert_c2t_or_g2a_4, null,
+ WGBS_pairend,
+ Format: cat script.sh 
+ #!/bin/sh #PBS -q batch 
+ #PBS -l mem=1gb|mb|kb,walltime=01:00:00 
+ #HSCHED -s hschedd =======================QUEUE-----ppn(<=)-----psmem(<=)dataque psppn=12
+ psmem=48gbbioque psppn=5 psmem=20gbgenomics psppn=6 psmem=12gbfast2day psppn=2 
+ psmem=4gbasmque psppn=30 psmem=500gbfat02que psppn=30 psmem=1000gb
+ Error: Check Memory
+2015-08-12 22:39:45,801 DEBUG [java.sql.Connection] - xxx Connection Closed
+
+想办法将作业提交时的脚本错误，以及作业运行时，由PBS反应的错误给显示出来，并将作业状态置为失败
+
+
+
+
+1. bench.err文件中
+=>> PBS: job killed: walltime 3626 exceeded limit 3600
+
