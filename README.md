@@ -5,7 +5,7 @@ current version v1.0 <br><br>
 #### Genome view
 ![](http://delta.big.ac.cn/circosweb/images/help/genome.jpg)  
 #### Topological View
-![](http://delta.big.ac.cn/circosweb/images/help/figure1_2.jpg)
+![](https://github.com/zhangzhwlab/delta/blob/master/WebRoot/images/help/figure1_2.jpg)
 #### Physical View
 ![](http://delta.big.ac.cn/circosweb/images/Figure3.jpg)  
 
